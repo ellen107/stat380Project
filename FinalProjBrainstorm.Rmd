@@ -4,7 +4,26 @@ output: html_notebook
 ---
 
 ```{r}
+library(tidyverse)
+setwd('~/Desktop/p19')
+
+p19t14 <- read_csv("p19t14.csv")
+p19t14 <- p19t14%>%
+  select(-'Bureau of Justice Statistics')
+
+p19t14_flip <- as.data.frame(t(p19t14))
 
 ```
 
+
+```{r}
+p19t14_flip <-p19t14_flip%>%
+  select('V10', 'V11', 'V12', 'V13', 'V14', 'V15', 'V16', 'V17', 'V18', 'V19', 'V20', 'V21', 'V22', 'V23', 'V24', 'V25', 'V26','V27', 'V28', 'V29', 'V30', 'V31', 'V32')
+  
+```
+
+```{r}
+names(p19t14_flip) <- lapply(p19t14_flip[1, ], as.character)
+p19t14_flip <- p19t14_flip[-1,] 
+```
 
