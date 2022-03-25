@@ -25,5 +25,6 @@ p19t14_flip <-p19t14_flip%>%
 ```{r}
 names(p19t14_flip) <- lapply(p19t14_flip[1, ], as.character)
 p19t14_flip <- p19t14_flip[-1,] 
+#All prisoners,gender, ethnicity
 ```
 
