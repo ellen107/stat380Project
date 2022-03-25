@@ -5,7 +5,7 @@ output: html_notebook
 
 ```{r}
 library(tidyverse)
-setwd('~/Desktop/p19')
+
 
 p19t14 <- read_csv("p19t14.csv")
 p19t14 <- p19t14%>%

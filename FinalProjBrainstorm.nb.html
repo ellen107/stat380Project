@@ -1765,12 +1765,48 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5zZXR3ZCgnfi9EZXNrdG9wL3AxOScpXG5cbnAxOXQxNCA8LSByZWFkX2NzdihcInAxOXQxNC5jc3ZcIilcbnAxOXQxNCA8LSBwMTl0MTQlPiVcbiAgc2VsZWN0KC0nQnVyZWF1IG9mIEp1c3RpY2UgU3RhdGlzdGljcycpXG5cbnAxOXQxNF9mbGlwIDwtIGFzLmRhdGEuZnJhbWUodChwMTl0MTQpKVxuXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)
-setwd(&#39;~/Desktop/p19&#39;)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4xIOKUgOKUgFxu4pyTIGdncGxvdDIgMy4zLjUgICAgIOKckyBwdXJyciAgIDAuMy40XG7inJMgdGliYmxlICAzLjEuNCAgICAg4pyTIGRwbHlyICAgMS4wLjdcbuKckyB0aWR5ciAgIDEuMS4zICAgICDinJMgc3RyaW5nciAxLjQuMFxu4pyTIHJlYWRyICAgMi4wLjEgICAgIOKckyBmb3JjYXRzIDAuNS4xXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG54IGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbnggZHBseXI6OmxhZygpICAgIG1hc2tzIHN0YXRzOjpsYWcoKVxuIn0= -->
+<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+── Attaching packages ──────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+✓ tibble  3.1.4     ✓ dplyr   1.0.7
+✓ tidyr   1.1.3     ✓ stringr 1.4.0
+✓ readr   2.0.1     ✓ forcats 0.5.1
+── Conflicts ─────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3NldHdkKCd+L0Rlc2t0b3AvcDE5JylcblxucDE5dDE0IDwtIHJlYWRfY3N2KFwicDE5dDE0LmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>#setwd(&#39;~/Desktop/p19&#39;)
 
-p19t14 &lt;- read_csv(&quot;p19t14.csv&quot;)
-p19t14 &lt;- p19t14%&gt;%
+p19t14 &lt;- read_csv(&quot;p19t14.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4yXG4qIGBgIC0+IC4uLjNcbiogYGAgLT4gLi4uNFxuKiBgYCAtPiAuLi41XG4qIGBgIC0+IC4uLjZcbiogLi4uXG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...2
+* `` -&gt; ...3
+* `` -&gt; ...4
+* `` -&gt; ...5
+* `` -&gt; ...6
+* ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNDAgQ29sdW1uczogOFxu4pSA4pSAIENvbHVtbiBzcGVjaWZpY2F0aW9uIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgFxuRGVsaW1pdGVyOiBcIixcIlxuY2hyICg4KTogQnVyZWF1IG9mIEp1c3RpY2UgU3RhdGlzdGljcywgLi4uMiwgLi4uMywgLi4uNCwgLi4uNSwgLi4uNiwgLi4uNywgLi4uOFxuXG7ihLkgVXNlIGBzcGVjKClgIHRvIHJldHJpZXZlIHRoZSBmdWxsIGNvbHVtbiBzcGVjaWZpY2F0aW9uIGZvciB0aGlzIGRhdGEuXG7ihLkgU3BlY2lmeSB0aGUgY29sdW1uIHR5cGVzIG9yIHNldCBgc2hvd19jb2xfdHlwZXMgPSBGQUxTRWAgdG8gcXVpZXQgdGhpcyBtZXNzYWdlLlxuIn0= -->
+<pre><code>Rows: 40 Columns: 8
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr (8): Bureau of Justice Statistics, ...2, ...3, ...4, ...5, ...6, ...7, ...8
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDE5dDE0IDwtIHAxOXQxNCU+JVxuICBzZWxlY3QoLSdCdXJlYXUgb2YgSnVzdGljZSBTdGF0aXN0aWNzJylcblxucDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpXG5cbmBgYCJ9 -->
+<pre class="r"><code>p19t14 &lt;- p19t14%&gt;%
   select(-&#39;Bureau of Justice Statistics&#39;)
 
 p19t14_flip &lt;- as.data.frame(t(p19t14))
@@ -1797,7 +1833,7 @@ p19t14_flip &lt;- p19t14_flip[-1,] </code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBCcmFpbnN0b3JtaW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCnNldHdkKCd+L0Rlc2t0b3AvcDE5JykKCnAxOXQxNCA8LSByZWFkX2NzdigicDE5dDE0LmNzdiIpCnAxOXQxNCA8LSBwMTl0MTQlPiUKICBzZWxlY3QoLSdCdXJlYXUgb2YgSnVzdGljZSBTdGF0aXN0aWNzJykKCnAxOXQxNF9mbGlwIDwtIGFzLmRhdGEuZnJhbWUodChwMTl0MTQpKQoKYGBgCgoKYGBge3J9CnAxOXQxNF9mbGlwIDwtcDE5dDE0X2ZsaXAlPiUKICBzZWxlY3QoJ1YxMCcsICdWMTEnLCAnVjEyJywgJ1YxMycsICdWMTQnLCAnVjE1JywgJ1YxNicsICdWMTcnLCAnVjE4JywgJ1YxOScsICdWMjAnLCAnVjIxJywgJ1YyMicsICdWMjMnLCAnVjI0JywgJ1YyNScsICdWMjYnLCdWMjcnLCAnVjI4JywgJ1YyOScsICdWMzAnLCAnVjMxJywgJ1YzMicpCiAgCmBgYAoKYGBge3J9Cm5hbWVzKHAxOXQxNF9mbGlwKSA8LSBsYXBwbHkocDE5dDE0X2ZsaXBbMSwgXSwgYXMuY2hhcmFjdGVyKQpwMTl0MTRfZmxpcCA8LSBwMTl0MTRfZmxpcFstMSxdIApgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBCcmFpbnN0b3JtaW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCgoKcDE5dDE0IDwtIHJlYWRfY3N2KCJwMTl0MTQuY3N2IikKcDE5dDE0IDwtIHAxOXQxNCU+JQogIHNlbGVjdCgtJ0J1cmVhdSBvZiBKdXN0aWNlIFN0YXRpc3RpY3MnKQoKcDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpCgpgYGAKCgpgYGB7cn0KcDE5dDE0X2ZsaXAgPC1wMTl0MTRfZmxpcCU+JQogIHNlbGVjdCgnVjEwJywgJ1YxMScsICdWMTInLCAnVjEzJywgJ1YxNCcsICdWMTUnLCAnVjE2JywgJ1YxNycsICdWMTgnLCAnVjE5JywgJ1YyMCcsICdWMjEnLCAnVjIyJywgJ1YyMycsICdWMjQnLCAnVjI1JywgJ1YyNicsJ1YyNycsICdWMjgnLCAnVjI5JywgJ1YzMCcsICdWMzEnLCAnVjMyJykKICAKYGBgCgpgYGB7cn0KbmFtZXMocDE5dDE0X2ZsaXApIDwtIGxhcHBseShwMTl0MTRfZmxpcFsxLCBdLCBhcy5jaGFyYWN0ZXIpCnAxOXQxNF9mbGlwIDwtIHAxOXQxNF9mbGlwWy0xLF0gCmBgYAoK</div>
 
 
 
