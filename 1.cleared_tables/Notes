@@ -1,0 +1,64 @@
+Clear / Organize Tables:
+
+
+P19:  
+
+T4: may be part of T9 where it gives the number of prisoners per state by sex in 2018 and 2019, and the percent change 
+
+T8: state total for admissions in 2018, 2019 and percent difference, 2019 new court commitments and conditional supervision violations, releases total in 2018 and 2019 and difference, 2019 conditional/unconditional 
+
+T9 : Percent of sentenced prisoners under the jurisdiction of state or federal correctional authorities, by sex, race or ethnicity, and age, December 31, 2019 
+
+Rows: Age groups 
+
+Columns: gender, ethnicity 
+
+T10 : Imprisonment rates of U.S. residents, based on sentenced prisoners under the jurisdictions of state and federal correctional authorities, by demographic characteristics, December 31, 2019 
+
+Rows: Age groups 
+
+Columns: gender, ethnicity 
+
+T14: Number of sentenced prisoners under the jurisdiction of state 
+
+Rows: Offense types (ex. Murder, Rape, Fraud, Possession) 
+
+Columns: gender, ethnicity. 
+
+ 
+
+MBTI-personality test  
+
+ 
+
+Fpscfsa: 
+
+T2: Prisoners who volunteered for/participated in substance-abuse treatment programs 
+
+Rows: Non-Residential Drug Abuse Program, Residential Drug Abuse Program, Challenge Program 
+
+Column: 2018, 2019 
+
+T3: Selected characteristics of federal facilities, 2018 and 2019 
+
+Rows: Facilities with remote-learning capabilities 
+
+Column: 2018, 2019 
+
+T9: Recidivism-reduction partnerships in Federal Bureau of Prisons facilities, by facility, 2019 
+
+Rows: Facility – Total Partnerships 
+
+Columns: Art, Community-based, Faith-based, Higher education, Nonprofit, Private, Visitation volunteer, Vocational training, Workforce development, Total partnerships 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ppus19: 
+
+Ppus19at07:  Adults on probation, 2019 
