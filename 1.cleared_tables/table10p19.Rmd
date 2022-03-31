@@ -1,0 +1,43 @@
+---
+title: "Table 10"
+output: html_notebook
+---
+
+```{r}
+p19t10 <- read_csv("table10newish.csv")
+
+View(p19t10)
+
+```
+```{r}
+set1 <- p19t10 %>%
+  select(-c("X4", "X10"))
+set1
+```
+```{r}
+p19<-
+  set1 %>% 
+  mutate(mycol = coalesce(X1,X2)) %>%
+  select(mycol)
+
+p19
+```
+
+
+```{r}
+names(set1) <- as.matrix(set1[1, ])
+set1 <- set1[-1, ]
+set1[] <- lapply(set1, function(x) type.convert(as.character(x)))
+View(set1)
+
+```
+
+```{r}
+colnames(set1)[4] <- 'Male'
+colnames(set1)[9] <- 'Female'
+
+set1
+
+
+```
+
