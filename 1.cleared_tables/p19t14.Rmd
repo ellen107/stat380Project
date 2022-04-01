@@ -1,5 +1,5 @@
 ---
-title: "Final Project Brainstorming"
+title: "p19t14"
 output: html_notebook
 ---
 
@@ -8,7 +8,7 @@ library(tidyverse)
 
 
 p19t14 <- read_csv("p19t14.csv")
-p19t14 <- p19t14%>%
+p19t14 <- p19t14>%
   select(-'Bureau of Justice Statistics')
 
 p19t14_flip <- as.data.frame(t(p19t14))
