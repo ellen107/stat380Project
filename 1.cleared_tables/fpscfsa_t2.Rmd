@@ -1,0 +1,24 @@
+---
+title: "Table 2 fpscfsa"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+
+library(readr)
+fpscfsat2 <- read_csv("fpscfsat2.csv")
+
+
+
+fpscfsat2_flip <- as.data.frame(t(fpscfsat2))
+
+
+fpscfsat2_flip <-fpscfsat2_flip%>%
+  select('V32', 'V33', 'V34', 'V35','V36','V37','V38','V39','V40')
+
+fpscfsat2_flip <-fpscfsat2_flip[ c(2,3,5), ]
+  
+
+View(fpscfsat2_flip)
+```
