@@ -1,17 +1,18 @@
 ---
-title: "Final Project Brainstorming"
+title: "p19t14"
 output: html_notebook
 ---
 
 ```{r}
 library(tidyverse)
-
+library(janitor)
 
 p19t14 <- read_csv("p19t14.csv")
 p19t14 <- p19t14%>%
   select(-'Bureau of Justice Statistics')
 
 p19t14_flip <- as.data.frame(t(p19t14))
+
 ```
 
 
@@ -26,5 +27,14 @@ names(p19t14_flip) <- lapply(p19t14_flip[1, ], as.character)
 p19t14_flip <- p19t14_flip[-1,]
 
 #All prisoners,gender, ethnicity
+```
+
+
+```{r}
+p19t14_cleaned <- 
+  p19t14_flip%>%
+  clean_names()%>%
+  select(-na_2, -na_3, -na_4, -na_5, -na_6)%>%
+  rename('Features'='na')
 ```
 
