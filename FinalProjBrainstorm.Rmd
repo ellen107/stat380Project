@@ -12,7 +12,6 @@ p19t14 <- p19t14%>%
   select(-'Bureau of Justice Statistics')
 
 p19t14_flip <- as.data.frame(t(p19t14))
-
 ```
 
 
