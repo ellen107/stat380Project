@@ -2,6 +2,11 @@
 title: "Table 10"
 output: html_notebook
 ---
+#I have a few ideas down below but I believe our best bet is to split it into two separate tables which is the last two chunks of code at the bottom
+
+```{r}
+library(tidyverse)
+```
 
 ```{r}
 p19t10 <- read_csv("table10newish.csv")
@@ -11,13 +16,13 @@ View(p19t10)
 ```
 ```{r}
 set1 <- p19t10 %>%
-  select(-c("X4", "X10"))
+  select(-c("X2","X4", "X10"))
 set1
 ```
 ```{r}
-p19<-
+#p19<-
   set1 %>% 
-  mutate(mycol = coalesce(X1,X2)) %>%
+  mutate(mycol = coalesce(X1)) %>%
   select(mycol)
 
 p19
@@ -33,11 +38,46 @@ View(set1)
 ```
 
 ```{r}
-colnames(set1)[4] <- 'Male'
-colnames(set1)[9] <- 'Female'
+colnames(set1)[3] <- 'Male'
+colnames(set1)[8] <- 'Female'
 
 set1
 
 
 ```
+```{r}
+set1<-set1[-c(1,13), ]
+set1
+```
 
+
+```{r}
+set11 <- 
+  set1 %>%
+  pivot_wider(names_from = Age, values_from = c(Male, Female))
+set11
+```
+
+```{r}
+set12 <- 
+  set1 %>%
+  pivot_wider(names_from = Age, values_from = c("White/a", "Black/a", "Hispanic", "Other/a,b"))
+set12
+```
+```{r}
+set13 <- 
+  set1 %>%
+  pivot_wider(names_from = Age, values_from = c("Total"))
+set13
+```
+
+```{r}
+idea_table1 <-
+  set1[ ,c(1,3:7)]
+idea_table1
+```
+```{r}
+idea_table2 <-
+  set1[ ,c(1,8:12)]
+idea_table2
+```
