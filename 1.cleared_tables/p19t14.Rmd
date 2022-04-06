@@ -38,3 +38,26 @@ p19t14_cleaned <-
   rename('Features'='na')
 ```
 
+```{r}
+p19t14_cleaned2 <-p19t14_cleaned[,-1]
+rownames(p19t14_cleaned2)<-p19t14_cleaned[,1]
+```
+
+```{r}
+
+p19t14_cleaned2$total <- as.numeric(gsub(",","",p19t14_cleaned2$total))
+```
+
+```{r}
+clean_df <- map_df(p19t14_cleaned2, ~ gsub(",", "", .x))
+
+```
+
+```{r}
+clean_df <- sapply(clean_df, as.numeric)
+```
+
+```{r}
+pairs(clean_df)
+```
+
