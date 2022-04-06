@@ -217,8 +217,33 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnBzY2ZzYXQyX2ZsaXAgPC1mcHNjZnNhdDJfZmxpcCU+JVxuICBzZWxlY3QoJ1YzMicsICdWMzMnLCAnVjM0JywgJ1YzNScsJ1YzNicsJ1YzNycsJ1YzOCcsJ1YzOScsJ1Y0MCcpXG5cbmZwc2Nmc2F0Ml9mbGlwIDwtZnBzY2ZzYXQyX2ZsaXBbIGMoMiwzLDUpLCBdXG4gIFxuXG5WaWV3KGZwc2Nmc2F0Ml9mbGlwKVxuYGBgIn0= -->
-<pre class="r"><code>fpscfsat2_flip &lt;-fpscfsat2_flip%&gt;%
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5cbmxpYnJhcnkocmVhZHIpXG5mcHNjZnNhdDIgPC0gcmVhZF9jc3YoXCJmcHNjZnNhdDIuY3N2XCIpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)
+
+library(readr)
+fpscfsat2 &lt;- read_csv(&quot;fpscfsat2.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4yXG4qIGBgIC0+IC4uLjNcbiogYGAgLT4gLi4uNFxuKiBgYCAtPiAuLi41XG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...2
+* `` -&gt; ...3
+* `` -&gt; ...4
+* `` -&gt; ...5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNDYgQ29sdW1uczogNVxuLS0gQ29sdW1uIHNwZWNpZmljYXRpb24gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbkRlbGltaXRlcjogXCIsXCJcbmNociAoNCk6IEZpbGVuYW1lOiBmcHNjZnNhMjB0MDIuY3N2LCAuLi4yLCAuLi4zLCAuLi40XG5cbmkgVXNlIGBzcGVjKClgIHRvIHJldHJpZXZlIHRoZSBmdWxsIGNvbHVtbiBzcGVjaWZpY2F0aW9uIGZvciB0aGlzIGRhdGEuXG5pIFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
+<pre><code>Rows: 46 Columns: 5
+-- Column specification --------------------------------------------------------------
+Delimiter: &quot;,&quot;
+chr (4): Filename: fpscfsa20t02.csv, ...2, ...3, ...4
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnBzY2ZzYXQyX2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KGZwc2Nmc2F0MikpXG5cblxuZnBzY2ZzYXQyX2ZsaXAgPC1mcHNjZnNhdDJfZmxpcCU+JVxuICBzZWxlY3QoJ1YzMicsICdWMzMnLCAnVjM0JywgJ1YzNScsJ1YzNicsJ1YzNycsJ1YzOCcsJ1YzOScsJ1Y0MCcpXG5cbmZwc2Nmc2F0Ml9mbGlwIDwtZnBzY2ZzYXQyX2ZsaXBbIGMoMiwzLDUpLCBdXG4gIFxuXG5WaWV3KGZwc2Nmc2F0Ml9mbGlwKVxuYGBgIn0= -->
+<pre class="r"><code>fpscfsat2_flip &lt;- as.data.frame(t(fpscfsat2))
+
+
+fpscfsat2_flip &lt;-fpscfsat2_flip%&gt;%
   select(&#39;V32&#39;, &#39;V33&#39;, &#39;V34&#39;, &#39;V35&#39;,&#39;V36&#39;,&#39;V37&#39;,&#39;V38&#39;,&#39;V39&#39;,&#39;V40&#39;)
 
 fpscfsat2_flip &lt;-fpscfsat2_flip[ c(2,3,5), ]

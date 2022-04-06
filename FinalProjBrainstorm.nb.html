@@ -1769,8 +1769,33 @@ pre code {
 <pre class="r"><code>library(tidyverse)
 
 
+<<<<<<< HEAD
+p19t14 &lt;- read_csv(&quot;p19t14.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4yXG4qIGBgIC0+IC4uLjNcbiogYGAgLT4gLi4uNFxuKiBgYCAtPiAuLi41XG4qIGBgIC0+IC4uLjZcbiogLi4uXG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...2
+* `` -&gt; ...3
+* `` -&gt; ...4
+* `` -&gt; ...5
+* `` -&gt; ...6
+* ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNDAgQ29sdW1uczogOFxuLS0gQ29sdW1uIHNwZWNpZmljYXRpb24gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbkRlbGltaXRlcjogXCIsXCJcbmNociAoOCk6IEJ1cmVhdSBvZiBKdXN0aWNlIFN0YXRpc3RpY3MsIC4uLjIsIC4uLjMsIC4uLjQsIC4uLjUsIC4uLjYsIC4uLjcsIC4uLjhcblxuaSBVc2UgYHNwZWMoKWAgdG8gcmV0cmlldmUgdGhlIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb24gZm9yIHRoaXMgZGF0YS5cbmkgU3BlY2lmeSB0aGUgY29sdW1uIHR5cGVzIG9yIHNldCBgc2hvd19jb2xfdHlwZXMgPSBGQUxTRWAgdG8gcXVpZXQgdGhpcyBtZXNzYWdlLlxuIn0= -->
+<pre><code>Rows: 40 Columns: 8
+-- Column specification --------------------------------------------------------------
+Delimiter: &quot;,&quot;
+chr (8): Bureau of Justice Statistics, ...2, ...3, ...4, ...5, ...6, ...7, ...8
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDE5dDE0IDwtIHAxOXQxNCU+JVxuICBzZWxlY3QoLSdCdXJlYXUgb2YgSnVzdGljZSBTdGF0aXN0aWNzJylcblxucDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpXG5cbmBgYCJ9 -->
+<pre class="r"><code>p19t14 &lt;- p19t14%&gt;%
+=======
 p19t14 &lt;- read_csv(&quot;p19t14.csv&quot;)
 p19t14 &lt;- p19t14%&gt;%
+>>>>>>> 2976e79e7839606065a5396a4d6be2689032b76d
   select(-&#39;Bureau of Justice Statistics&#39;)
 
 p19t14_flip &lt;- as.data.frame(t(p19t14))
@@ -1789,21 +1814,34 @@ p19t14_flip &lt;- as.data.frame(t(p19t14))
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<<<<<<< HEAD
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMocDE5dDE0X2ZsaXApIDwtIGxhcHBseShwMTl0MTRfZmxpcFsxLCBdLCBhcy5jaGFyYWN0ZXIpXG5wMTl0MTRfZmxpcCA8LSBwMTl0MTRfZmxpcFstMSxdIFxuI0FsbCBwcmlzb25lcnMsZ2VuZGVyLCBldGhuaWNpdHlcblxuVmlldyhwMTl0MTRfZmxpcClcbmBgYCJ9 -->
+<pre class="r"><code>names(p19t14_flip) &lt;- lapply(p19t14_flip[1, ], as.character)
+p19t14_flip &lt;- p19t14_flip[-1,] 
+#All prisoners,gender, ethnicity
+
+View(p19t14_flip)</code></pre>
+=======
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMocDE5dDE0X2ZsaXApIDwtIGxhcHBseShwMTl0MTRfZmxpcFsxLCBdLCBhcy5jaGFyYWN0ZXIpXG5wMTl0MTRfZmxpcCA8LSBwMTl0MTRfZmxpcFstMSxdXG5cbiNBbGwgcHJpc29uZXJzLGdlbmRlciwgZXRobmljaXR5XG5gYGAifQ== -->
 <pre class="r"><code>names(p19t14_flip) &lt;- lapply(p19t14_flip[1, ], as.character)
 p19t14_flip &lt;- p19t14_flip[-1,]
 
 #All prisoners,gender, ethnicity</code></pre>
+>>>>>>> 2976e79e7839606065a5396a4d6be2689032b76d
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
 <<<<<<< HEAD
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkZpbmFsIFByb2plY3QgQnJhaW5zdG9ybWluZyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQoNCg0KcDE5dDE0IDwtIHJlYWRfY3N2KCJwMTl0MTQuY3N2IikNCnAxOXQxNCA8LSBwMTl0MTQlPiUNCiAgc2VsZWN0KC0nQnVyZWF1IG9mIEp1c3RpY2UgU3RhdGlzdGljcycpDQoNCnAxOXQxNF9mbGlwIDwtIGFzLmRhdGEuZnJhbWUodChwMTl0MTQpKQ0KDQpgYGANCg0KDQpgYGB7cn0NCnAxOXQxNF9mbGlwIDwtcDE5dDE0X2ZsaXAlPiUNCiAgc2VsZWN0KCdWMTAnLCAnVjExJywgJ1YxMicsICdWMTMnLCAnVjE0JywgJ1YxNScsICdWMTYnLCAnVjE3JywgJ1YxOCcsICdWMTknLCAnVjIwJywgJ1YyMScsICdWMjInLCAnVjIzJywgJ1YyNCcsICdWMjUnLCAnVjI2JywnVjI3JywgJ1YyOCcsICdWMjknLCAnVjMwJywgJ1YzMScsICdWMzInKQ0KICANCmBgYA0KDQpgYGB7cn0NCm5hbWVzKHAxOXQxNF9mbGlwKSA8LSBsYXBwbHkocDE5dDE0X2ZsaXBbMSwgXSwgYXMuY2hhcmFjdGVyKQ0KcDE5dDE0X2ZsaXAgPC0gcDE5dDE0X2ZsaXBbLTEsXSANCiNBbGwgcHJpc29uZXJzLGdlbmRlciwgZXRobmljaXR5DQoNClZpZXcocDE5dDE0X2ZsaXApDQpgYGANCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQo=</div>
+=======
+<<<<<<< HEAD
 <div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBCcmFpbnN0b3JtaW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCgoKcDE5dDE0IDwtIHJlYWRfY3N2KCJwMTl0MTQuY3N2IikKcDE5dDE0IDwtIHAxOXQxNCU+JQogIHNlbGVjdCgtJ0J1cmVhdSBvZiBKdXN0aWNlIFN0YXRpc3RpY3MnKQoKcDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpCmBgYAoKCmBgYHtyfQpwMTl0MTRfZmxpcCA8LXAxOXQxNF9mbGlwJT4lCiAgc2VsZWN0KCdWMTAnLCAnVjExJywgJ1YxMicsICdWMTMnLCAnVjE0JywgJ1YxNScsICdWMTYnLCAnVjE3JywgJ1YxOCcsICdWMTknLCAnVjIwJywgJ1YyMScsICdWMjInLCAnVjIzJywgJ1YyNCcsICdWMjUnLCAnVjI2JywnVjI3JywgJ1YyOCcsICdWMjknLCAnVjMwJywgJ1YzMScsICdWMzInKQogIApgYGAKCmBgYHtyfQpuYW1lcyhwMTl0MTRfZmxpcCkgPC0gbGFwcGx5KHAxOXQxNF9mbGlwWzEsIF0sIGFzLmNoYXJhY3RlcikKcDE5dDE0X2ZsaXAgPC0gcDE5dDE0X2ZsaXBbLTEsXSAKI0FsbCBwcmlzb25lcnMsZ2VuZGVyLCBldGhuaWNpdHkKYGBgCgo=</div>
 =======
 <div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBCcmFpbnN0b3JtaW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCgoKcDE5dDE0IDwtIHJlYWRfY3N2KCJwMTl0MTQuY3N2IikKcDE5dDE0IDwtIHAxOXQxNCU+JQogIHNlbGVjdCgtJ0J1cmVhdSBvZiBKdXN0aWNlIFN0YXRpc3RpY3MnKQoKcDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpCgpgYGAKCgpgYGB7cn0KcDE5dDE0X2ZsaXAgPC1wMTl0MTRfZmxpcCU+JQogIHNlbGVjdCgnVjEwJywgJ1YxMScsICdWMTInLCAnVjEzJywgJ1YxNCcsICdWMTUnLCAnVjE2JywgJ1YxNycsICdWMTgnLCAnVjE5JywgJ1YyMCcsICdWMjEnLCAnVjIyJywgJ1YyMycsICdWMjQnLCAnVjI1JywgJ1YyNicsJ1YyNycsICdWMjgnLCAnVjI5JywgJ1YzMCcsICdWMzEnLCAnVjMyJykKICAKYGBgCgpgYGB7cn0KbmFtZXMocDE5dDE0X2ZsaXApIDwtIGxhcHBseShwMTl0MTRfZmxpcFsxLCBdLCBhcy5jaGFyYWN0ZXIpCnAxOXQxNF9mbGlwIDwtIHAxOXQxNF9mbGlwWy0xLF0KCiNBbGwgcHJpc29uZXJzLGdlbmRlciwgZXRobmljaXR5CmBgYAoK</div>
 >>>>>>> 4a9ecfd74fbd1b2ca5060bdcc2d987a23c815688
+>>>>>>> 2976e79e7839606065a5396a4d6be2689032b76d
 
 
 
