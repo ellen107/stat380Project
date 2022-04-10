@@ -1,6 +1,6 @@
 ```
 Cleaning table p19t08 
-Decided to split into two tables
+Decided to split into two tables : Admission and Releases
 
 ```
 
