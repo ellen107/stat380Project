@@ -19,8 +19,9 @@ library(dplyr)
 
 2) Read csv file
 ```{r}
-p19t08 <- read_csv("~/Desktop/22Spring/STAT 380/assignment/p19/p19t08.csv")
-View(p19t08)
+
+p19t08 <- read_csv("p19t08.csv")
+p19t08
 ```
 
 
@@ -29,7 +30,7 @@ View(p19t08)
 
 df <- p19t08[-c(1:9, 65:84),]
 
-View(df)
+df
 
 ```
 
@@ -44,16 +45,17 @@ df_Admission
 
 -Releases
 ```{r}
+
+# Create new table from df column 10 to 15
 df_Releases <- df[, c(10:15)]
-df_Releases
-```
 
-```{r}
-# Adding the first and second column to Releases Table as well.
-df_Releases <-cbind(df_Admission[,c(1,2)],df_Releases)
+# Add the first and second column to Releases Table as well.
+df_Releases <-add_column(df[,c(1,2)],df_Releases)
 df_Releases
 
 ```
+
+
 
 5) Change Header names and drop rows
 
@@ -86,4 +88,7 @@ df_Releases <- df_Releases[,-c(6) ]
 View(df_Admission)
 View(df_Releases)
 ```
+
+
+
 
