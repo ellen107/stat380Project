@@ -1765,7 +1765,7 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5cblxucDE5dDE0IDwtIHJlYWRfY3N2KFwicDE5dDE0LmNzdlwiKVxucDE5dDE0IDwtIHAxOXQxNCU+JVxuICBzZWxlY3QoLSdCdXJlYXUgb2YgSnVzdGljZSBTdGF0aXN0aWNzJylcblxucDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpXG5cbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5cblxucDE5dDE0IDwtIHJlYWRfY3N2KFwicDE5dDE0LmNzdlwiKVxucDE5dDE0IDwtIHAxOXQxNCU+JVxuICBzZWxlY3QoLSdCdXJlYXUgb2YgSnVzdGljZSBTdGF0aXN0aWNzJylcblxucDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpXG5gYGAifQ== -->
 <pre class="r"><code>library(tidyverse)
 
 
@@ -1773,8 +1773,7 @@ p19t14 &lt;- read_csv(&quot;p19t14.csv&quot;)
 p19t14 &lt;- p19t14%&gt;%
   select(-&#39;Bureau of Justice Statistics&#39;)
 
-p19t14_flip &lt;- as.data.frame(t(p19t14))
-</code></pre>
+p19t14_flip &lt;- as.data.frame(t(p19t14))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1789,21 +1788,19 @@ p19t14_flip &lt;- as.data.frame(t(p19t14))
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMocDE5dDE0X2ZsaXApIDwtIGxhcHBseShwMTl0MTRfZmxpcFsxLCBdLCBhcy5jaGFyYWN0ZXIpXG5wMTl0MTRfZmxpcCA8LSBwMTl0MTRfZmxpcFstMSxdXG5cbiNBbGwgcHJpc29uZXJzLGdlbmRlciwgZXRobmljaXR5XG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMocDE5dDE0X2ZsaXApIDwtIGxhcHBseShwMTl0MTRfZmxpcFsxLCBdLCBhcy5jaGFyYWN0ZXIpXG5wMTl0MTRfZmxpcCA8LSBwMTl0MTRfZmxpcFstMSxdXG5cbiNBbGwgcHJpc29uZXJzLGdlbmRlciwgZXRobmljaXR5XG5cblZpZXcocDE5dDE0X2ZsaXApXG5gYGAifQ== -->
 <pre class="r"><code>names(p19t14_flip) &lt;- lapply(p19t14_flip[1, ], as.character)
 p19t14_flip &lt;- p19t14_flip[-1,]
 
-#All prisoners,gender, ethnicity</code></pre>
+#All prisoners,gender, ethnicity
+
+View(p19t14_flip)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<<<<<<< HEAD
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBCcmFpbnN0b3JtaW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCgoKcDE5dDE0IDwtIHJlYWRfY3N2KCJwMTl0MTQuY3N2IikKcDE5dDE0IDwtIHAxOXQxNCU+JQogIHNlbGVjdCgtJ0J1cmVhdSBvZiBKdXN0aWNlIFN0YXRpc3RpY3MnKQoKcDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpCmBgYAoKCmBgYHtyfQpwMTl0MTRfZmxpcCA8LXAxOXQxNF9mbGlwJT4lCiAgc2VsZWN0KCdWMTAnLCAnVjExJywgJ1YxMicsICdWMTMnLCAnVjE0JywgJ1YxNScsICdWMTYnLCAnVjE3JywgJ1YxOCcsICdWMTknLCAnVjIwJywgJ1YyMScsICdWMjInLCAnVjIzJywgJ1YyNCcsICdWMjUnLCAnVjI2JywnVjI3JywgJ1YyOCcsICdWMjknLCAnVjMwJywgJ1YzMScsICdWMzInKQogIApgYGAKCmBgYHtyfQpuYW1lcyhwMTl0MTRfZmxpcCkgPC0gbGFwcGx5KHAxOXQxNF9mbGlwWzEsIF0sIGFzLmNoYXJhY3RlcikKcDE5dDE0X2ZsaXAgPC0gcDE5dDE0X2ZsaXBbLTEsXSAKI0FsbCBwcmlzb25lcnMsZ2VuZGVyLCBldGhuaWNpdHkKYGBgCgo=</div>
-=======
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBCcmFpbnN0b3JtaW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCgoKcDE5dDE0IDwtIHJlYWRfY3N2KCJwMTl0MTQuY3N2IikKcDE5dDE0IDwtIHAxOXQxNCU+JQogIHNlbGVjdCgtJ0J1cmVhdSBvZiBKdXN0aWNlIFN0YXRpc3RpY3MnKQoKcDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpCgpgYGAKCgpgYGB7cn0KcDE5dDE0X2ZsaXAgPC1wMTl0MTRfZmxpcCU+JQogIHNlbGVjdCgnVjEwJywgJ1YxMScsICdWMTInLCAnVjEzJywgJ1YxNCcsICdWMTUnLCAnVjE2JywgJ1YxNycsICdWMTgnLCAnVjE5JywgJ1YyMCcsICdWMjEnLCAnVjIyJywgJ1YyMycsICdWMjQnLCAnVjI1JywgJ1YyNicsJ1YyNycsICdWMjgnLCAnVjI5JywgJ1YzMCcsICdWMzEnLCAnVjMyJykKICAKYGBgCgpgYGB7cn0KbmFtZXMocDE5dDE0X2ZsaXApIDwtIGxhcHBseShwMTl0MTRfZmxpcFsxLCBdLCBhcy5jaGFyYWN0ZXIpCnAxOXQxNF9mbGlwIDwtIHAxOXQxNF9mbGlwWy0xLF0KCiNBbGwgcHJpc29uZXJzLGdlbmRlciwgZXRobmljaXR5CmBgYAoK</div>
->>>>>>> 4a9ecfd74fbd1b2ca5060bdcc2d987a23c815688
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBCcmFpbnN0b3JtaW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCgoKcDE5dDE0IDwtIHJlYWRfY3N2KCJwMTl0MTQuY3N2IikKcDE5dDE0IDwtIHAxOXQxNCU+JQogIHNlbGVjdCgtJ0J1cmVhdSBvZiBKdXN0aWNlIFN0YXRpc3RpY3MnKQoKcDE5dDE0X2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KHAxOXQxNCkpCmBgYAoKCmBgYHtyfQpwMTl0MTRfZmxpcCA8LXAxOXQxNF9mbGlwJT4lCiAgc2VsZWN0KCdWMTAnLCAnVjExJywgJ1YxMicsICdWMTMnLCAnVjE0JywgJ1YxNScsICdWMTYnLCAnVjE3JywgJ1YxOCcsICdWMTknLCAnVjIwJywgJ1YyMScsICdWMjInLCAnVjIzJywgJ1YyNCcsICdWMjUnLCAnVjI2JywnVjI3JywgJ1YyOCcsICdWMjknLCAnVjMwJywgJ1YzMScsICdWMzInKQogIApgYGAKCmBgYHtyfQpuYW1lcyhwMTl0MTRfZmxpcCkgPC0gbGFwcGx5KHAxOXQxNF9mbGlwWzEsIF0sIGFzLmNoYXJhY3RlcikKcDE5dDE0X2ZsaXAgPC0gcDE5dDE0X2ZsaXBbLTEsXQoKI0FsbCBwcmlzb25lcnMsZ2VuZGVyLCBldGhuaWNpdHkKClZpZXcocDE5dDE0X2ZsaXApCmBgYAoKCgoKCgoKCgoKCgoKCg==</div>
 
 
 

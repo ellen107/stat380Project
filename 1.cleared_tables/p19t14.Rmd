@@ -38,3 +38,25 @@ p19t14_cleaned <-
   rename('Features'='na')
 ```
 
+```{r}
+p19t14_cleaned2 <-p19t14_cleaned[,-1]
+rownames(p19t14_cleaned2)<-p19t14_cleaned[,1]
+```
+
+
+```{r}
+clean_df <- map_df(p19t14_cleaned2, ~ gsub(",", "", .x))
+
+```
+
+```{r}
+clean_df <- as.data.frame(sapply(clean_df, as.numeric))
+```
+
+```{r}
+clean_df%>%
+  ggplot(aes(x = murder_c))+
+  geom_boxplot()
+```
+
+
