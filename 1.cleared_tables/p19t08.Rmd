@@ -4,10 +4,6 @@ Decided to split into two tables : Admission and Releases
 
 ```
 
-```{r}
-install.packages("ftExtra")
-```
-
 1) Load packages
 
 ```{r}
