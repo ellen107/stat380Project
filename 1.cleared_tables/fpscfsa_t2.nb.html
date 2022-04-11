@@ -217,30 +217,15 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5cbmxpYnJhcnkocmVhZHIpXG5mcHNjZnNhdDIgPC0gcmVhZF9jc3YoXCJmcHNjZnNhdDIuY3N2XCIpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5cbmxpYnJhcnkocmVhZHIpXG5mcHNjZnNhdDIgPC0gcmVhZF9jc3YoXCJmcHNjZnNhdDIuY3N2XCIpXG5cblxuXG5mcHNjZnNhdDJfZmxpcCA8LSBhcy5kYXRhLmZyYW1lKHQoZnBzY2ZzYXQyKSlcblxuXG5mcHNjZnNhdDJfZmxpcCA8LWZwc2Nmc2F0Ml9mbGlwJT4lXG4gIHNlbGVjdCgnVjMyJywgJ1YzMycsICdWMzQnLCAnVjM1JywnVjM2JywnVjM3JywnVjM4JywnVjM5JywnVjQwJylcblxuZnBzY2ZzYXQyX2ZsaXAgPC1mcHNjZnNhdDJfZmxpcFsgYygyLDMsNSksIF1cbiAgXG5cblZpZXcoZnBzY2ZzYXQyX2ZsaXApXG5gYGAifQ== -->
 <pre class="r"><code>library(tidyverse)
 
 library(readr)
-fpscfsat2 &lt;- read_csv(&quot;fpscfsat2.csv&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4yXG4qIGBgIC0+IC4uLjNcbiogYGAgLT4gLi4uNFxuKiBgYCAtPiAuLi41XG4ifQ== -->
-<pre><code>New names:
-* `` -&gt; ...2
-* `` -&gt; ...3
-* `` -&gt; ...4
-* `` -&gt; ...5</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNDYgQ29sdW1uczogNVxuLS0gQ29sdW1uIHNwZWNpZmljYXRpb24gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbkRlbGltaXRlcjogXCIsXCJcbmNociAoNCk6IEZpbGVuYW1lOiBmcHNjZnNhMjB0MDIuY3N2LCAuLi4yLCAuLi4zLCAuLi40XG5cbmkgVXNlIGBzcGVjKClgIHRvIHJldHJpZXZlIHRoZSBmdWxsIGNvbHVtbiBzcGVjaWZpY2F0aW9uIGZvciB0aGlzIGRhdGEuXG5pIFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
-<pre><code>Rows: 46 Columns: 5
--- Column specification --------------------------------------------------------------
-Delimiter: &quot;,&quot;
-chr (4): Filename: fpscfsa20t02.csv, ...2, ...3, ...4
+fpscfsat2 &lt;- read_csv(&quot;fpscfsat2.csv&quot;)
 
-i Use `spec()` to retrieve the full column specification for this data.
-i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnBzY2ZzYXQyX2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KGZwc2Nmc2F0MikpXG5cblxuZnBzY2ZzYXQyX2ZsaXAgPC1mcHNjZnNhdDJfZmxpcCU+JVxuICBzZWxlY3QoJ1YzMicsICdWMzMnLCAnVjM0JywgJ1YzNScsJ1YzNicsJ1YzNycsJ1YzOCcsJ1YzOScsJ1Y0MCcpXG5cbmZwc2Nmc2F0Ml9mbGlwIDwtZnBzY2ZzYXQyX2ZsaXBbIGMoMiwzLDUpLCBdXG4gIFxuXG5WaWV3KGZwc2Nmc2F0Ml9mbGlwKVxuYGBgIn0= -->
-<pre class="r"><code>fpscfsat2_flip &lt;- as.data.frame(t(fpscfsat2))
+
+
+fpscfsat2_flip &lt;- as.data.frame(t(fpscfsat2))
 
 
 fpscfsat2_flip &lt;-fpscfsat2_flip%&gt;%
@@ -252,8 +237,43 @@ fpscfsat2_flip &lt;-fpscfsat2_flip[ c(2,3,5), ]
 View(fpscfsat2_flip)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5Ob25SZXNpZGVudGlhbERydWdBYnVzZVByb2dyYW08LWZwc2Nmc2F0Ml9mbGlwWzMsIDI6M11cbk5vblJlc2lkZW50aWFsRHJ1Z0FidXNlUHJvZ3JhbSA8LSBOb25SZXNpZGVudGlhbERydWdBYnVzZVByb2dyYW0gJT4lXG4gIHJlbmFtZShWb2x1bnRlZXJlZCA9IFYzMyxQYXJ0aWNpcGF0ZWQgPSBWMzQpXG5cblZpZXcoTm9uUmVzaWRlbnRpYWxEcnVnQWJ1c2VQcm9ncmFtKVxuXG5cbmBgYCJ9 -->
+<pre class="r"><code>
+NonResidentialDrugAbuseProgram&lt;-fpscfsat2_flip[3, 2:3]
+NonResidentialDrugAbuseProgram &lt;- NonResidentialDrugAbuseProgram %&gt;%
+  rename(Volunteered = V33,Participated = V34)
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlRhYmxlIDIgZnBzY2ZzYSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQoNCmxpYnJhcnkocmVhZHIpDQpmcHNjZnNhdDIgPC0gcmVhZF9jc3YoImZwc2Nmc2F0Mi5jc3YiKQ0KDQoNCg0KZnBzY2ZzYXQyX2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KGZwc2Nmc2F0MikpDQoNCg0KZnBzY2ZzYXQyX2ZsaXAgPC1mcHNjZnNhdDJfZmxpcCU+JQ0KICBzZWxlY3QoJ1YzMicsICdWMzMnLCAnVjM0JywgJ1YzNScsJ1YzNicsJ1YzNycsJ1YzOCcsJ1YzOScsJ1Y0MCcpDQoNCmZwc2Nmc2F0Ml9mbGlwIDwtZnBzY2ZzYXQyX2ZsaXBbIGMoMiwzLDUpLCBdDQogIA0KDQpWaWV3KGZwc2Nmc2F0Ml9mbGlwKQ0KYGBg</div>
+View(NonResidentialDrugAbuseProgram)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXHRcblJlc2lkZW50aWFsRHJ1Z0FidXNlUHJvZ3JhbTwtIGZwc2Nmc2F0Ml9mbGlwWzMsIDU6Nl1cblJlc2lkZW50aWFsRHJ1Z0FidXNlUHJvZ3JhbSA8LSBSZXNpZGVudGlhbERydWdBYnVzZVByb2dyYW0gJT4lXG4gIHJlbmFtZShWb2x1bnRlZXJlZCA9IFYzNixQYXJ0aWNpcGF0ZWQgPSBWMzcpXG5WaWV3KFJlc2lkZW50aWFsRHJ1Z0FidXNlUHJvZ3JhbSlcbmBgYCJ9 -->
+<pre class="r"><code>    
+ResidentialDrugAbuseProgram&lt;- fpscfsat2_flip[3, 5:6]
+ResidentialDrugAbuseProgram &lt;- ResidentialDrugAbuseProgram %&gt;%
+  rename(Volunteered = V36,Participated = V37)
+View(ResidentialDrugAbuseProgram)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQ2hhbGxlbmdlUHJvZ3JhbTwtZnBzY2ZzYXQyX2ZsaXBbMywgODo5XSBcbkNoYWxsZW5nZVByb2dyYW0gPC0gQ2hhbGxlbmdlUHJvZ3JhbSAlPiVcbiAgcmVuYW1lKFZvbHVudGVlcmVkID0gVjM5LFBhcnRpY2lwYXRlZCA9IFY0MClcblZpZXcoQ2hhbGxlbmdlUHJvZ3JhbSlcblxuYGBgIn0= -->
+<pre class="r"><code>ChallengeProgram&lt;-fpscfsat2_flip[3, 8:9] 
+ChallengeProgram &lt;- ChallengeProgram %&gt;%
+  rename(Volunteered = V39,Participated = V40)
+View(ChallengeProgram)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlRhYmxlIDIgZnBzY2ZzYSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQoNCmxpYnJhcnkocmVhZHIpDQpmcHNjZnNhdDIgPC0gcmVhZF9jc3YoImZwc2Nmc2F0Mi5jc3YiKQ0KDQoNCg0KZnBzY2ZzYXQyX2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KGZwc2Nmc2F0MikpDQoNCg0KZnBzY2ZzYXQyX2ZsaXAgPC1mcHNjZnNhdDJfZmxpcCU+JQ0KICBzZWxlY3QoJ1YzMicsICdWMzMnLCAnVjM0JywgJ1YzNScsJ1YzNicsJ1YzNycsJ1YzOCcsJ1YzOScsJ1Y0MCcpDQoNCmZwc2Nmc2F0Ml9mbGlwIDwtZnBzY2ZzYXQyX2ZsaXBbIGMoMiwzLDUpLCBdDQogIA0KDQpWaWV3KGZwc2Nmc2F0Ml9mbGlwKQ0KYGBgDQoNCmBgYHtyfQ0KDQpOb25SZXNpZGVudGlhbERydWdBYnVzZVByb2dyYW08LWZwc2Nmc2F0Ml9mbGlwWzMsIDI6M10NCk5vblJlc2lkZW50aWFsRHJ1Z0FidXNlUHJvZ3JhbSA8LSBOb25SZXNpZGVudGlhbERydWdBYnVzZVByb2dyYW0gJT4lDQogIHJlbmFtZShWb2x1bnRlZXJlZCA9IFYzMyxQYXJ0aWNpcGF0ZWQgPSBWMzQpDQoNClZpZXcoTm9uUmVzaWRlbnRpYWxEcnVnQWJ1c2VQcm9ncmFtKQ0KDQoNCmBgYA0KDQpgYGB7cn0NCgkNClJlc2lkZW50aWFsRHJ1Z0FidXNlUHJvZ3JhbTwtIGZwc2Nmc2F0Ml9mbGlwWzMsIDU6Nl0NClJlc2lkZW50aWFsRHJ1Z0FidXNlUHJvZ3JhbSA8LSBSZXNpZGVudGlhbERydWdBYnVzZVByb2dyYW0gJT4lDQogIHJlbmFtZShWb2x1bnRlZXJlZCA9IFYzNixQYXJ0aWNpcGF0ZWQgPSBWMzcpDQpWaWV3KFJlc2lkZW50aWFsRHJ1Z0FidXNlUHJvZ3JhbSkNCmBgYA0KDQoNCmBgYHtyfQ0KQ2hhbGxlbmdlUHJvZ3JhbTwtZnBzY2ZzYXQyX2ZsaXBbMywgODo5XSANCkNoYWxsZW5nZVByb2dyYW0gPC0gQ2hhbGxlbmdlUHJvZ3JhbSAlPiUNCiAgcmVuYW1lKFZvbHVudGVlcmVkID0gVjM5LFBhcnRpY2lwYXRlZCA9IFY0MCkNClZpZXcoQ2hhbGxlbmdlUHJvZ3JhbSkNCg0KYGBg</div>
 
 
 
