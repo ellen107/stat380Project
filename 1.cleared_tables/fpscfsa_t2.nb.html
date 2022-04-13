@@ -217,27 +217,40 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5cbmxpYnJhcnkocmVhZHIpXG5mcHNjZnNhdDIgPC0gcmVhZF9jc3YoXCJmcHNjZnNhdDIuY3N2XCIpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)
-
-library(readr)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4wIOKUgOKUgFxu4pyTIGdncGxvdDIgMy4zLjUgICAgIOKckyBwdXJyciAgIDAuMy40XG7inJMgdGliYmxlICAzLjAuNSAgICAg4pyTIGRwbHlyICAgMS4wLjNcbuKckyB0aWR5ciAgIDEuMS4yICAgICDinJMgc3RyaW5nciAxLjQuMFxu4pyTIHJlYWRyICAgMS40LjAgICAgIOKckyBmb3JjYXRzIDAuNS4wXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG54IGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbnggZHBseXI6OmxhZygpICAgIG1hc2tzIHN0YXRzOjpsYWcoKVxuIn0= -->
+<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+── Attaching packages ─────────────────────────────── tidyverse 1.3.0 ──
+✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+✓ tibble  3.0.5     ✓ dplyr   1.0.3
+✓ tidyr   1.1.2     ✓ stringr 1.4.0
+✓ readr   1.4.0     ✓ forcats 0.5.0
+── Conflicts ────────────────────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmZwc2Nmc2F0MiA8LSByZWFkX2NzdihcImZwc2Nmc2F0Mi5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>library(readr)
 fpscfsat2 &lt;- read_csv(&quot;fpscfsat2.csv&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4yXG4qIGBgIC0+IC4uLjNcbiogYGAgLT4gLi4uNFxuKiBgYCAtPiAuLi41XG4ifQ== -->
-<pre><code>New names:
-* `` -&gt; ...2
-* `` -&gt; ...3
-* `` -&gt; ...4
-* `` -&gt; ...5</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogTWlzc2luZyBjb2x1bW4gbmFtZXMgZmlsbGVkIGluOiAnWDInIFsyXSwgJ1gzJyBbM10sICdYNCcgWzRdLCAnWDUnIFs1XVxuIn0= -->
+<pre><code>Warning: Missing column names filled in: &#39;X2&#39; [2], &#39;X3&#39; [3], &#39;X4&#39; [4], &#39;X5&#39; [5]</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogNDYgQ29sdW1uczogNVxuLS0gQ29sdW1uIHNwZWNpZmljYXRpb24gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cbkRlbGltaXRlcjogXCIsXCJcbmNociAoNCk6IEZpbGVuYW1lOiBmcHNjZnNhMjB0MDIuY3N2LCAuLi4yLCAuLi4zLCAuLi40XG5cbmkgVXNlIGBzcGVjKClgIHRvIHJldHJpZXZlIHRoZSBmdWxsIGNvbHVtbiBzcGVjaWZpY2F0aW9uIGZvciB0aGlzIGRhdGEuXG5pIFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
-<pre><code>Rows: 46 Columns: 5
--- Column specification --------------------------------------------------------------
-Delimiter: &quot;,&quot;
-chr (4): Filename: fpscfsa20t02.csv, ...2, ...3, ...4
-
-i Use `spec()` to retrieve the full column specification for this data.
-i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICBgRmlsZW5hbWU6IGZwc2Nmc2EyMHQwMi5jc3ZgID0gY29sX2NoYXJhY3RlcigpLFxuICBYMiA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgWDMgPSBjb2xfY2hhcmFjdGVyKCksXG4gIFg0ID0gY29sX2NoYXJhY3RlcigpLFxuICBYNSA9IGNvbF9udW1iZXIoKVxuKVxuIn0= -->
+<pre><code>
+── Column specification ────────────────────────────────────────────────
+cols(
+  `Filename: fpscfsa20t02.csv` = col_character(),
+  X2 = col_character(),
+  X3 = col_character(),
+  X4 = col_character(),
+  X5 = col_number()
+)</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnBzY2ZzYXQyX2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KGZwc2Nmc2F0MikpXG5cblxuZnBzY2ZzYXQyX2ZsaXAgPC1mcHNjZnNhdDJfZmxpcCU+JVxuICBzZWxlY3QoJ1YzMicsICdWMzMnLCAnVjM0JywgJ1YzNScsJ1YzNicsJ1YzNycsJ1YzOCcsJ1YzOScsJ1Y0MCcpXG5cbmZwc2Nmc2F0Ml9mbGlwIDwtZnBzY2ZzYXQyX2ZsaXBbIGMoMiwzLDUpLCBdXG4gIFxuXG5WaWV3KGZwc2Nmc2F0Ml9mbGlwKVxuYGBgIn0= -->
 <pre class="r"><code>fpscfsat2_flip &lt;- as.data.frame(t(fpscfsat2))
@@ -253,7 +266,7 @@ View(fpscfsat2_flip)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlRhYmxlIDIgZnBzY2ZzYSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQoNCmxpYnJhcnkocmVhZHIpDQpmcHNjZnNhdDIgPC0gcmVhZF9jc3YoImZwc2Nmc2F0Mi5jc3YiKQ0KDQoNCg0KZnBzY2ZzYXQyX2ZsaXAgPC0gYXMuZGF0YS5mcmFtZSh0KGZwc2Nmc2F0MikpDQoNCg0KZnBzY2ZzYXQyX2ZsaXAgPC1mcHNjZnNhdDJfZmxpcCU+JQ0KICBzZWxlY3QoJ1YzMicsICdWMzMnLCAnVjM0JywgJ1YzNScsJ1YzNicsJ1YzNycsJ1YzOCcsJ1YzOScsJ1Y0MCcpDQoNCmZwc2Nmc2F0Ml9mbGlwIDwtZnBzY2ZzYXQyX2ZsaXBbIGMoMiwzLDUpLCBdDQogIA0KDQpWaWV3KGZwc2Nmc2F0Ml9mbGlwKQ0KYGBg</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGFibGUgMiBmcHNjZnNhIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7cn0KbGlicmFyeSh0aWR5dmVyc2UpCgpsaWJyYXJ5KHJlYWRyKQpmcHNjZnNhdDIgPC0gcmVhZF9jc3YoImZwc2Nmc2F0Mi5jc3YiKQoKCgpmcHNjZnNhdDJfZmxpcCA8LSBhcy5kYXRhLmZyYW1lKHQoZnBzY2ZzYXQyKSkKCgpmcHNjZnNhdDJfZmxpcCA8LWZwc2Nmc2F0Ml9mbGlwJT4lCiAgc2VsZWN0KCdWMzInLCAnVjMzJywgJ1YzNCcsICdWMzUnLCdWMzYnLCdWMzcnLCdWMzgnLCdWMzknLCdWNDAnKQoKZnBzY2ZzYXQyX2ZsaXAgPC1mcHNjZnNhdDJfZmxpcFsgYygyLDMsNSksIF0KICAKClZpZXcoZnBzY2ZzYXQyX2ZsaXApCmBgYA==</div>
 
 
 
