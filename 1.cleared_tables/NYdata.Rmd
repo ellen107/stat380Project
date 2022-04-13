@@ -19,4 +19,8 @@ View(NYdata_cleaned)
 #p19t14_flip <- as.data.frame(t(p19t14))
 ```
 
+```{r}
+NYdata_cleaned%>%
+  ggplot()
+```
 
