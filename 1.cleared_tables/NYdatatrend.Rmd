@@ -3,5 +3,65 @@ title: "Predicting the trend of New York Data Set"
 output: html_notebook
 ---
 
-Using supervised learning, I am trying to set a certain range of years (ex. 2000-2020) as a test set to predict the year 2021 using the New York data. 
+Using supervised learning, I am trying to set a certain range of years 2000-2020 as a test set to predict the year 2021 using the New York data. 
+
+
+```{r}
+library(tidyverse)
+
+NYdata <- read_csv("seven-major-felony-offenses-2000-2021.csv")
+
+years <- c('offense','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009', '2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021')
+
+names(NYdata)<-years
+NYdata_cleaned<-NYdata %>% slice(-c(1,2,3,4,13,14,15,16,17,18,19,20))
+
+```
+
+
+```{r}
+#View(NYdata_cleaned2)
+
+NYdata_cleaned_allcrimes<- NYdata_cleaned2[155:175,]
+View(NYdata_cleaned_allcrimes)
+```
+
+```{r}
+NYdata_cleaned_allcrimes %>% ggplot() + geom_point(aes(Year, crime_count)) #plot for trend for all the crimes from 2000 to 2020
+```
+
+```{r}
+mod <- lm(Year ~ crime_count, data = NYdata_cleaned_allcrimes )
+summary(mod)
+```
+```{r}
+modpred <- NYdata_cleaned_allcrimes %>% add_predictions(mod)
+modpred
+```
+```{r}
+modpred %>% 
+  ggplot() + 
+  geom_point(aes(crime_count, avg_score)) +
+  geom_point(aes(gender, pred), col = 'red', size = 3)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
