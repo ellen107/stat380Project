@@ -64,12 +64,8 @@ View(cleaned_df)
 
 ```
 
-```{r}
-library(esquisse)
 
-esquisse(cleaned_df)
 
-```
 
 ```{r}
 cleaned_df <- as.matrix(cleaned_df)
