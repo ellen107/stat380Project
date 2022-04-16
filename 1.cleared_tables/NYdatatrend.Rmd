@@ -1,0 +1,7 @@
+---
+title: "Predicting the trend of New York Data Set"
+output: html_notebook
+---
+
+Using supervised learning, I am trying to set a certain range of years (ex. 2000-2020) as a test set to predict the year 2021 using the New York data. 
+

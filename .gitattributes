@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 NYPD_Arrests_Data_2015_2019.csv filter=lfs diff=lfs merge=lfs -text
+=======
+*.csv filter=lfs diff=lfs merge=lfs -text
+>>>>>>> e2ab786adb2a7b056f3a34266430483107697bc0
