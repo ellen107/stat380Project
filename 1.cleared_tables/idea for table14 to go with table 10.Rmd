@@ -1,0 +1,51 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+
+p19t14 <- read_csv("~/Desktop/Stat380/CopyOfp19t14.csv")
+p19t14 <- p19t14%>%
+  select(-'Bureau of Justice Statistics')
+
+p19t14_flip <- as.data.frame(t(p19t14))
+
+```
+```{r}
+#library(readr)
+#CopyOfp19t14 <- read_csv("~/Desktop/Stat380/CopyOfp19t14.csv")
+#View(CopyOfp19t14)
+```
+
+```{r}
+p19t14_flip <- p19t14_flip %>%
+  select(-c("V1","V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V33", "V34", "V35", "V36", "V37", "V38", "V39", "V40"))
+p19t14_flip
+```
+
+```{r}
+names(p19t14_flip) <- as.matrix(p19t14_flip[1, ])
+p19t14_flip <- p19t14_flip[-1, ]
+p19t14_flip[] <- lapply(p19t14_flip, function(x) type.convert(as.character(x)))
+View(p19t14_flip)
+```
+
+```{r}
+colnames(p19t14_flip)[1] <- 'Characteristic'
+colnames(p19t14_flip)[3] <- 'Violent Crime Totals' #Murder, Negligent manslaughter, Rapse/sexual assualt, robbery, aggravated/simple assault, other
+colnames(p19t14_flip)[10] <- 'Property Crime Totals' #Burglary, Larcenty/theft, Motor-vehicle theft, fraud, other
+colnames(p19t14_flip)[16] <- 'Drug Crime Totals' #Possession, other
+colnames(p19t14_flip)[19] <- 'Public Order Crime Totals' #weapons, dui/dwi, other
+colnames(p19t14_flip)[23] <- 'Other/Unspecified Crime Totals'
+```
+
+
+```{r}
+p19t14_flip %>%
+  select(Characteristic, Total, `Violent Crime Totals`, `Property Crime Totals`,`Drug Crime Totals`, `Public Order Crime Totals`, `Other/Unspecified Crime Totals` )
+```
+
+
