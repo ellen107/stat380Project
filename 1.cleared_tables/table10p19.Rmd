@@ -21,11 +21,11 @@ set1
 ```
 ```{r}
 #p19<-
-  set1 %>% 
-  mutate(mycol = coalesce(X1)) %>%
-  select(mycol)
+ # set1 %>% 
+  #mutate(mycol = coalesce(X1)) %>%
+  #select(mycol)
 
-p19
+#p19
 ```
 
 
@@ -52,23 +52,10 @@ set1
 
 
 ```{r}
-set11 <- 
-  set1 %>%
-  pivot_wider(names_from = Age, values_from = c(Male, Female))
-set11
-```
-
-```{r}
-set12 <- 
-  set1 %>%
-  pivot_wider(names_from = Age, values_from = c("White/a", "Black/a", "Hispanic", "Other/a,b"))
-set12
-```
-```{r}
-set13 <- 
-  set1 %>%
-  pivot_wider(names_from = Age, values_from = c("Total"))
-set13
+#set11 <- 
+  #set1 %>%
+  #pivot_wider(names_from = Age, values_from = c(Male, Female))
+#set11
 ```
 
 ```{r}
@@ -76,11 +63,106 @@ idea_table1 <-
   set1[ ,c(1,3:7)]
 idea_table1
 ```
+#plots
+```{r}
+library(ggplot2)
+library(esquisse)
+library(reshape2)
+
+
+```
+
+```{r}
+#as.numeric(idea_table1$'White/a')
+idea_table1 <- map_df(idea_table1, ~gsub(",","", .x))
+idea_table1_clean <- as.data.frame(sapply(idea_table1, as.numeric ))
+
+ageRange<- c('18-19', '20-24', '25-29','30-24','35-39','40-44','45-49','50-54','55-59','60-64','65 or older')
+idea_table1_clean$Age <- ageRange
+#View(idea_table1_clean)
+```
+
+```{r}
+idea1 <- 
+  idea_table1_clean %>% #select(`White/a`, `Black/a`, Hispanic, `Other/a,b`) %>%
+  pivot_longer(., cols = c(`White/a`, `Black/a`, Hispanic, `Other/a,b`), names_to = "Race", values_to = "Count")
+```
+
+```{r}
+esquisser(idea1)
+#library(ggplot2)
+```
+
+```{r}
+
+ggplot(idea1) +
+ aes(x = Age, fill = Race, colour = Race, weight = Count) +
+ geom_bar() +
+ scale_fill_hue() +
+ scale_color_hue() +
+ labs(title = "Male") + #change the title to something more concrete 
+ theme_bw() +
+ facet_grid(vars(Race), vars())
+```
+
+
 ```{r}
 idea_table2 <-
   set1[ ,c(1,8:12)]
 idea_table2
 ```
+```{r}
+#as.numeric(idea_table1$'White/a')
+idea_table2 <- map_df(idea_table2, ~gsub(",","", .x))
+idea_table2_clean <- as.data.frame(sapply(idea_table2, as.numeric ))
+
+ageRange<- c('18-19', '20-24', '25-29','30-24','35-39','40-44','45-49','50-54','55-59','60-64','65 or older')
+idea_table2_clean$Age <- ageRange
+#View(idea_table2_clean)
+```
+
+
+```{r}
+idea2 <- 
+  idea_table2_clean %>% #select(`White/a`, `Black/a`, Hispanic, `Other/a,b`) %>%
+  pivot_longer(., cols = c(`White/a`, `Black/a`, Hispanic, `Other/a,b`), names_to = "Race", values_to = "Count")
+```
+
+
+```{r}
+ggplot(idea2) +
+ aes(x = Age, fill = Race, colour = Race, weight = Count) +
+ geom_bar() +
+ scale_fill_hue() +
+ scale_color_hue() +
+ labs(title = "Female") + #change the title to something more concrete 
+ theme_bw() +
+ facet_grid(vars(Race), vars())
+```
+
 
 
 ## I am adding this comment in hopes that the token works hi!!
+
+
+#time to use unsupervised learning
+
+```{r}
+library(tidyverse)
+library(cluster)
+library(factoextra)
+```
+
+
+```{r}
+set.seed(123)
+fviz_nbclust(idea1, kmeans, method = "wss")
+```
+```{r}
+fviz_nbclust(idea1, hcut, hc_method = "complete", hc_metric = "euclidean", method = "wss")
+```
+```{r}
+fviz_nbclust(idea1, kmeans, method = "silhouette")+
+  labs(subtitle = "Silhouette method")
+```
+

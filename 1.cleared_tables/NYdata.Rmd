@@ -16,42 +16,12 @@ names(NYdata)<-years
 NYdata_cleaned<-NYdata %>% slice(-c(1, 2, 3, 4, 13,14,15,16,17,18,19,20))
 
 View(NYdata_cleaned)
-
+#p19t14_flip <- as.data.frame(t(p19t14))
 ```
 
 ```{r}
-NYdata_cleaned2<-
-  NYdata_cleaned%>%
-  pivot_longer(cols = starts_with('20'), names_to = 'Year', values_to = 'crime_count')
-```
-
-```{r}
-#bar graph of MURDER & NON-NEGL. MANSLAUGHTER over time(year) from 2000 to 2021 in New York
-NYdata_cleaned2%>%
-  filter(offense == 'MURDER & NON-NEGL. MANSLAUGHTER')%>%
-  ggplot(aes(x = Year, y = crime_count))+
-  geom_col(fill = 'lightgreen')
-```
-
-```{r}
-#bar graph of RAPE over time(year) from 2000 to 2021 in New York
-NYdata_cleaned2%>%
-  filter(offense == 'RAPE')%>%
-  ggplot(aes(x = Year, y = crime_count))+
-  geom_col(fill = 'pink')
-```
-
-
-
-# NYPD Arrests data 2015-2019:
-```{r}
-NYPD <- read_csv("NYPD_Arrests_Data_2015_2019.csv")
-```
-
-```{r}
-NYPD_Arrests<-
-  NYPD%>%
-  select('ARREST_KEY','ARREST_DATE','PD_DESC','OFNS_DESC','ARREST_BORO','JURISDICTION_CODE','AGE_GROUP','PERP_SEX','PERP_RACE')
+NYdata_cleaned%>%
+  ggplot()
 ```
 
 
