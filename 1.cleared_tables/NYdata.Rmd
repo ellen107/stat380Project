@@ -56,11 +56,6 @@ NYPD_Arrests<-
 
 ```
 
-```{r}
-NYPD_Arrests<-
-  NYPD%>%
-  select('ARREST_KEY','ARREST_DATE','PD_DESC','OFNS_DESC','ARREST_BORO','JURISDICTION_CODE','AGE_GROUP','PERP_SEX','PERP_RACE')
-```
 
 
 ```{r}
