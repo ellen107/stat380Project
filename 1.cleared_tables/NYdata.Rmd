@@ -46,14 +46,14 @@ NYdata_cleaned2%>%
 # NYPD Arrests data 2015-2019:
 ```{r}
 NYPD <- read_csv("NYPD_Arrests_Data_2015_2019.csv")
-<<<<<<< HEAD
+
 ```
 
 ```{r}
 NYPD_Arrests<-
   NYPD%>%
   select('ARREST_KEY','ARREST_DATE','PD_DESC','OFNS_DESC','ARREST_BORO','JURISDICTION_CODE','AGE_GROUP','PERP_SEX','PERP_RACE')
-=======
+\
 ```
 
 ```{r}
@@ -85,7 +85,7 @@ NYPD_filtered<-
   NYPD_Arrests%>%
   filter(OFNS_DESC == offense)
 
->>>>>>> 23ffafe6985de7fefea9360821fe987695e2c916
+
 ```
 
 
