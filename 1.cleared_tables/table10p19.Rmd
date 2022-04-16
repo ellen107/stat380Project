@@ -4,6 +4,12 @@ output: html_notebook
 ---
 #I have a few ideas down below but I believe our best bet is to split it into two separate tables which is the last two chunks of code at the bottom
 
+#Table 10. Imprisonment rates of U.S. residents, based on sentenced prisoners under the jurisdictions of state and federal correctional authorities, by demographic characteristics, December 31, 2019
+
+## TABLE 10
+##Note: Jurisdiction refers to the legal authority of state or federal correctional officials over a prisoner, regardless of where the prisoner is held. Rates and counts are based on sentenced prisoners under the jurisdiction of state or federal correctional officials. Imprisonment rate is the number of sentenced prisoners under state or federal jurisdiction per 100,000 U.S. residents, or per 100,000 U.S. residents in a given category. Resident population estimates are from the U.S. Census Bureau for January 1, 2020. Totals include imputed counts for Oregon, which did not submit 2019 National Prisoner Statistics data. See Methodology.
+
+# number of new arrests/imprisonments were diagnosed for every 100,000 people.
 ```{r}
 library(tidyverse)
 ```
@@ -21,11 +27,11 @@ set1
 ```
 ```{r}
 #p19<-
-  set1 %>% 
-  mutate(mycol = coalesce(X1)) %>%
-  select(mycol)
+  #set1 %>% 
+  #mutate(mycol = coalesce(X1)) %>%
+  #select(mycol)
 
-p19
+#p19
 ```
 
 
@@ -52,30 +58,32 @@ set1
 
 
 ```{r}
-set11 <- 
-  set1 %>%
-  pivot_wider(names_from = Age, values_from = c(Male, Female))
-set11
+#set11 <- 
+  #set1 %>%
+  #pivot_wider(names_from = Age, values_from = c(Male, Female))
+#set11
 ```
 
 ```{r}
-set12 <- 
-  set1 %>%
-  pivot_wider(names_from = Age, values_from = c("White/a", "Black/a", "Hispanic", "Other/a,b"))
-set12
-```
-```{r}
-set13 <- 
-  set1 %>%
-  pivot_wider(names_from = Age, values_from = c("Total"))
-set13
+#set12 <- 
+  #set1 %>%
+  #pivot_wider(names_from = Age, values_from = c("White/a", "Black/a", "Hispanic", "Other/a,b"))
+#set12
 ```
 
 ```{r}
-<<<<<<< HEAD
+#set13 <- 
+  #set1 %>%
+  #pivot_wider(names_from = Age, values_from = c("Total"))
+#set13
+```
+
+```{r}
+#<<<<<<< HEAD
 idea1 <- 
   idea_table1_clean %>% #select(`White/a`, `Black/a`, Hispanic, `Other/a,b`) %>%
   pivot_longer(., cols = c(`White/a`, `Black/a`, Hispanic, `Other/a,b`), names_to = "Race", values_to = "Count")
+idea1
 ```
 
 ```{r}
@@ -93,12 +101,20 @@ ggplot(idea1) +
  labs(title = "Male") + #change the title to something more concrete 
  theme_bw() +
  facet_grid(vars(Race), vars())
-=======
+#=======
+```
+
+```{r}
 idea_table1 <-
   set1[ ,c(1,3:7)]
-idea_table1
->>>>>>> 3c2adc2f826f13221a07b2d170bf95cf5de659fa
+View(idea_table1)
+#>>>>>>> 3c2adc2f826f13221a07b2d170bf95cf5de659fa
 ```
+
+
+
+
+
 ```{r}
 idea_table2 <-
   set1[ ,c(1,8:12)]
@@ -111,7 +127,7 @@ idea_table2 <- map_df(idea_table2, ~gsub(",","", .x))
 idea_table2_clean <- as.data.frame(sapply(idea_table2, as.numeric ))
 
 ageRange<- c('18-19', '20-24', '25-29','30-24','35-39','40-44','45-49','50-54','55-59','60-64','65 or older')
-idea_table2_clean$Age <- ageRange
+idea_table2$Age <- ageRange
 #View(idea_table2_clean)
 ```
 
