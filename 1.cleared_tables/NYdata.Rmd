@@ -54,3 +54,32 @@ NYPD_Arrests<-
   select('ARREST_KEY','ARREST_DATE','PD_DESC','OFNS_DESC','ARREST_BORO','JURISDICTION_CODE','AGE_GROUP','PERP_SEX','PERP_RACE')
 ```
 
+
+```{r}
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl("ASSAULT", NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'ASSAULT', NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('OFFENSES AGAINST THE PERSON',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'ASSAULT',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('PROSTITUTION',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'SEX CRIMES',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('LARCENY',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'LARCENY AND THEFT',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('THEF',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'LARCENY AND THEFT',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('ROBBERY',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'LARCENY AND THEFT',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('FRAUD',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'FRAUD',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('WEA',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'WEAPONS AND TOOLS',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('TOOL',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'WEAPONS AND TOOLS',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('MURDER',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'MURDER',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('CHILD',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'OFFENSES RELATED TO CHILDREN',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('HOMICIDE-NEGLIGENT',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'HOMICIDE-NEGLIGENT',NYPD_Arrests$OFNS_DESC)
+NYPD_Arrests$OFNS_DESC<-ifelse(grepl('DRUG',NYPD_Arrests$OFNS_DESC, fixed = TRUE), 'DRUGS AND RELATED',NYPD_Arrests$OFNS_DESC)
+```
+
+```{r}
+offense = c('ASSAULT','SEX CRIMES','LARCENY AND THEFT','RAPE', 'MURDER','DRUGS AND RELATED','HOMICIDE-NEGLIGENT')
+NYPD_filtered<-
+  NYPD_Arrests%>%
+  filter(OFNS_DESC == offense)
+
+```
+
+
+
+
+
