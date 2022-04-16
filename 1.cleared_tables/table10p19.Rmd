@@ -89,7 +89,7 @@ idea1 <-
 ```
 
 ```{r}
-#esquisser(idea1)
+esquisser(idea1)
 #library(ggplot2)
 ```
 
@@ -139,8 +139,30 @@ ggplot(idea2) +
  theme_bw() +
  facet_grid(vars(Race), vars())
 ```
-```
+
 
 
 ## I am adding this comment in hopes that the token works hi!!
+
+
+#time to use unsupervised learning
+
+```{r}
+library(tidyverse)
+library(cluster)
+library(factoextra)
+```
+
+
+```{r}
+set.seed(123)
+fviz_nbclust(idea1, kmeans, method = "wss")
+```
+```{r}
+fviz_nbclust(idea1, hcut, hc_method = "complete", hc_metric = "euclidean", method = "wss")
+```
+```{r}
+fviz_nbclust(idea1, kmeans, method = "silhouette")+
+  labs(subtitle = "Silhouette method")
+```
 
