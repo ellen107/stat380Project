@@ -45,7 +45,7 @@ NYdata_cleaned2%>%
 
 # NYPD Arrests data 2015-2019:
 ```{r}
-NYPD <- read_csv("NYPD_Arrests_Data_2015_2019.csv")
+NYPD <- read_csv("NYPD_Arrests_Data_2017_2019.csv")
 
 ```
 
@@ -53,14 +53,9 @@ NYPD <- read_csv("NYPD_Arrests_Data_2015_2019.csv")
 NYPD_Arrests<-
   NYPD%>%
   select('ARREST_KEY','ARREST_DATE','PD_DESC','OFNS_DESC','ARREST_BORO','JURISDICTION_CODE','AGE_GROUP','PERP_SEX','PERP_RACE')
-\
+
 ```
 
-```{r}
-NYPD_Arrests<-
-  NYPD%>%
-  select('ARREST_KEY','ARREST_DATE','PD_DESC','OFNS_DESC','ARREST_BORO','JURISDICTION_CODE','AGE_GROUP','PERP_SEX','PERP_RACE')
-```
 
 
 ```{r}
@@ -90,6 +85,7 @@ NYPD_filtered<-
 
 
 ```{r}
+#boxplot by race and arrest counts
 NYPD_filtered%>%
   group_by(OFNS_DESC, PERP_RACE)%>%
   summarise(arrest_count = n())%>%
@@ -99,6 +95,12 @@ NYPD_filtered%>%
 ```
 
 ```{r}
-
+#barplots of offense type, arrest counts, and race
+NYPD_filtered%>%
+  group_by(OFNS_DESC, PERP_RACE)%>%
+  summarise(arrest_count = n())%>%
+  ggplot(aes(x = arrest_count, y=OFNS_DESC, fill =PERP_RACE))+
+  geom_col()+
+  facet_grid(rows = vars(PERP_RACE))
 ```
 

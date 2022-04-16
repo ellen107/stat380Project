@@ -3,6 +3,8 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+
+# table 14: Table 14. Number of sentenced prisoners under the jurisdiction of state correctional authorities, by most serious offense, sex, and race or ethnicity, December 31, 2018
 ```{r}
 library(tidyverse)
 library(janitor)
@@ -58,8 +60,102 @@ table1014_idea2 <- as.data.frame(sapply(table1014_idea, as.numeric ))
 #table1014_idea2
 characteristic <- c("All prisoners", "Male", "Female", "White/b", "Black/b", "Hispanic")
 table1014_idea2$Characteristic <- characteristic
-table1014_idea2
+View(table1014_idea2)
+
 ```
+
+```{r}
+library(esquisse)
+```
+
+```{r}
+esquisser(table1014_idea2)
+
+```
+```{r}
+table1014 <- 
+  table1014_idea2 %>% #select(`White/a`, `Black/a`, Hispanic, `Other/a,b`) %>%
+  pivot_longer(., cols = c(Total, `Violent Crime Totals`, `Property Crime Totals`, `Drug Crime Totals`, `Public Order Crime Totals`), names_to = "Crime Totals", values_to = "Count")
+table1014
+```
+
+```{r}
+esquisser(table1014)
+```
+
+```{r}
+table1014_2 <- 
+  table1014_idea2 %>% 
+  select(Characteristic, Total, `Violent Crime Totals`, `Property Crime Totals`, `Drug Crime Totals`, `Public Order Crime Totals`) 
+
+table1014_2_flip <-
+  as.data.frame(t(table1014_2))
+table1014_2_flip
+```
+```{r}
+#delete row
+#table1014_2_flip<-table1014_2_flip[-1, ]
+
+names(table1014_2_flip) <- as.matrix(table1014_2_flip[1, ])
+table1014_2_flip <- table1014_2_flip[-1, ]
+table1014_2_flip[] <- lapply(table1014_2_flip, function(x) type.convert(as.character(x)))
+table1014_2_flip
+```
+
+
+```{r}
+table <-
+  table1014_2_flip %>%
+  pivot_longer(., cols = c(`All prisoners`, Male, Female), names_to = "Gender", values_to = "Count")
+table
+```
+
+
+
+
+
+
+```{r}
+library(esquisse)
+```
+
+
+```{r}
+esquisser(table)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+
+%>%
+  pivot_longer(., cols = c(Total, `Violent Crime Totals`, `Property Crime Totals`, `Drug Crime Totals`, `Public Order Crime Totals`), names_to = "Crime Totals", values_to = "Count")
+table1014
+```
+
+
 
 #unsupervised learning...clustering
 ```{r}
@@ -68,9 +164,7 @@ library(cluster)
 library(factoextra)
 ```
 
-```{r}
-fviz_nbclust(table1014_idea2, hcut, hc_method = "complete", hc_metric = "euclidean", method = "wss")
 
-```
+## Combine the two tables, 10 and 14, to compare 
 
 

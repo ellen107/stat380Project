@@ -72,23 +72,3 @@ clean_df%>%
   geom_boxplot(fill = 'pink')
 ```
 
-
-```{r}
-clean_df%>%
-  ggplot(aes(x = robbery))+
-  geom_boxplot(fill = 'purple')
-```
-
-```{r}
-clean_df%>%
-  ggplot(aes(x = fraud))+
-  geom_boxplot(fill = 'orange')
-```
-
-
-```{r}
-clean_df%>%
-  ggplot(aes(x = murder_c, y = rape_sexual_assault))+
-  geom_smooth()
-```
-
