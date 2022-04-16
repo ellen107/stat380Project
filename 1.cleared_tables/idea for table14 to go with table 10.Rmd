@@ -99,20 +99,51 @@ table1014_2_flip
 names(table1014_2_flip) <- as.matrix(table1014_2_flip[1, ])
 table1014_2_flip <- table1014_2_flip[-1, ]
 table1014_2_flip[] <- lapply(table1014_2_flip, function(x) type.convert(as.character(x)))
-View(table1014_2_flip)
+table1014_2_flip
 ```
+
 
 ```{r}
-colnames(table1014_2_flip)[1] <- 'Totals'
-colnames(table1014_2_flip)[2] <- 'All prisoners'
-colnames(table1014_2_flip)[3] <- 'Male'
-colnames(table1014_2_flip)[3] <- 'Female'
-colnames(table1014_2_flip)[4] <- 'White/b'
-colnames(table1014_2_flip)[5] <- 'Black/b'
-colnames(table1014_2_flip)[6] <- 'Hispanic'
-table1014_2_flip
-
+table <-
+  table1014_2_flip %>%
+  pivot_longer(., cols = c(`All prisoners`, Male, Female), names_to = "Gender", values_to = "Count")
+table
 ```
+
+
+
+
+
+
+```{r}
+library(esquisse)
+```
+
+
+```{r}
+esquisser(table)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
