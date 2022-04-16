@@ -1,1 +1,2 @@
 NYPD_Data_2017_2019.csv filter=lfs diff=lfs merge=lfs -text
+NYPD_Arrests_Data_2017_2019.cvs filter=lfs diff=lfs merge=lfs -text
