@@ -73,7 +73,7 @@ esquisser(table1014_idea2)
 
 ```
 ```{r}
-table1014 <- 
+#table1014 <- 
   table1014_idea2 %>% #select(`White/a`, `Black/a`, Hispanic, `Other/a,b`) %>%
   pivot_longer(., cols = c(Total, `Violent Crime Totals`, `Property Crime Totals`, `Drug Crime Totals`, `Public Order Crime Totals`), names_to = "Crime Totals", values_to = "Count")
 table1014
@@ -87,11 +87,15 @@ esquisser(table1014)
 table1014_2 <- 
   table1014_idea2 %>% 
   select(Characteristic, Total, `Violent Crime Totals`, `Property Crime Totals`, `Drug Crime Totals`, `Public Order Crime Totals`) 
+table1014_2
+```
 
+```{r}
 table1014_2_flip <-
   as.data.frame(t(table1014_2))
 table1014_2_flip
 ```
+
 ```{r}
 #delete row
 #table1014_2_flip<-table1014_2_flip[-1, ]
@@ -109,6 +113,12 @@ table <-
   pivot_longer(., cols = c(`All prisoners`, Male, Female), names_to = "Gender", values_to = "Count")
 table
 ```
+```{r}
+table1 <-
+  table %>%
+  pivot_longer(., cols = c(`White/b`, `Black/b`, Hispanic), names_to = "Race", values_to = "Race_count")
+table1
+```
 
 
 
@@ -121,7 +131,24 @@ library(esquisse)
 
 
 ```{r}
-esquisser(table)
+esquisser(table1
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+
+table1 %>%
+ filter(!(Gender %in% "All prisoners")) %>%
+ ggplot() +
+ aes(x = Count, y = Race_count, fill = Race, colour = Race) +
+ geom_area(size = 1L) +
+ scale_fill_hue() +
+ scale_color_hue() +
+ labs(x = "Race Count", y = "Gender Count", title = "Comparison of Male and Female Prisoners") +
+ theme_bw() +
+ facet_wrap(vars(Gender))
+)
 ```
 
 
