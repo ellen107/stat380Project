@@ -103,4 +103,3 @@ NYPD_filtered%>%
   geom_col()+
   facet_grid(rows = vars(PERP_RACE))
 ```
-
