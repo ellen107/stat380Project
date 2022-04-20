@@ -34,7 +34,11 @@ View(NYdata_cleaned_allcrimes)
 ```
 
 ```{r}
-NYdata_cleaned_allcrimes %>% ggplot() + geom_point(aes(Year, crime_count)) #plot for trend for all the crimes from 2000 to 2020
+NYdata_cleaned_allcrimes %>% ggplot() + geom_point(aes(Year, crime_count)) + ggtitle(labs(title = "Number of Seven Major Felony Offenses from 2000 to 2021 in NY")) #plot for trend for all the crimes from 2000 to 2020
+```
+```{r}
+NYdata_cleaned_alloffense<- NYdata_cleaned2[1:154,] 
+NYdata_cleaned_alloffense %>% ggplot() + geom_point(aes(Year, crime_count)) + ggtitle(labs(title = "Number of Seven Major Felony Offenses from 2000 to 2021 in NY")) + facet_wrap(~offense, ncol = 4) + theme(axis.text.x= element_text(angle = 60))
 ```
 
 ```{r}
@@ -52,7 +56,8 @@ modpred %>%
   geom_point(aes(Year,crime_count)) +
   geom_point(aes(Year,pred), col = 'red', size = 3) +
   geom_line(aes(Year,pred), col = 'red') +
-  geom_segment(aes(x= Year, y= crime_count, xend = Year, yend =pred), alpha = .2)
+  geom_segment(aes(x= Year, y= crime_count, xend = Year, yend =pred), alpha = .2) +
+  ggtitle(labs(title = "Regression Line of the Total Crime in NY"))
 ```
 
 
