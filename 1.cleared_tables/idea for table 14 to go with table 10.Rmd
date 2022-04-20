@@ -170,3 +170,26 @@ table1_i %>%
 )
 ```
 
+
+```{r}
+green <- 
+  data1 %>%
+  select()
+```
+
+```{r}
+pairs(data1)
+```
+
+
+
+
+
+### Pairs unsupervised? 
+```{r}
+#pairs(table1_i)
+```
+
+
+
+#state data only ...table 10 uses state and federal data

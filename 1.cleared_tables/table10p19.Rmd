@@ -79,6 +79,21 @@ set1
 ```
 
 ```{r}
+idea_table1 <-
+  set1[ ,c(1,3:7)]
+View(idea_table1)
+#>>>>>>> 3c2adc2f826f13221a07b2d170bf95cf5de659fa
+```
+
+```{r}
+idea_table1 <- map_df(idea_table1, ~gsub(",","", .x))
+idea_table1_clean <- as.data.frame(sapply(idea_table1, as.numeric ))
+ageRange<- c('18-19', '20-24', '25-29','30-24','35-39','40-44','45-49','50-54','55-59','60-64','65 or older')
+idea_table1_clean$Age <- ageRange
+```
+
+
+```{r}
 #<<<<<<< HEAD
 idea1 <- 
   idea_table1_clean %>% #select(`White/a`, `Black/a`, Hispanic, `Other/a,b`) %>%
@@ -98,17 +113,10 @@ ggplot(idea1) +
  geom_bar() +
  scale_fill_hue() +
  scale_color_hue() +
- labs(title = "Female Sentences Prisoners 2019 by Age and Race") + #change the title to something more concrete 
+ labs(title = "Male Sentences Prisoners 2019 by Age and Race") + #change the title to something more concrete 
  theme_bw() +
  facet_grid(vars(Race), vars())
 #=======
-```
-
-```{r}
-idea_table1 <-
-  set1[ ,c(1,8:12)]
-View(idea_table1)
-#>>>>>>> 3c2adc2f826f13221a07b2d170bf95cf5de659fa
 ```
 
 
@@ -120,16 +128,16 @@ idea_table2 <-
   set1[ ,c(1,8:12)]
 idea_table2
 ```
-<<<<<<< HEAD
+
 ```{r}
-#as.numeric(idea_table1$'White/a')
 idea_table2 <- map_df(idea_table2, ~gsub(",","", .x))
 idea_table2_clean <- as.data.frame(sapply(idea_table2, as.numeric ))
+ageRange<- c('18-19', '20-24', '25-29','30-24','35-39','40-44','45-49','50-54','55-59','60-64','65 or older')
+idea_table2_clean$Age <- ageRange
 
-ageRange<-c('18-19', '20-24', '25-29','30-24','35-39','40-44','45-49','50-54','55-59','60-64','65 or older')
-idea_table2$Age <- ageRange
-View(idea_table2_clean)
+idea_table2_clean
 ```
+
 
 
 ```{r}
@@ -145,7 +153,7 @@ ggplot(idea2) +
  geom_bar() +
  scale_fill_hue() +
  scale_color_hue() +
- labs(title = "Female") + #change the title to something more concrete 
+ labs(title = "Female Sentenced Prisoners by Age and Race in 2019") + #change the title to something more concrete 
  theme_bw() +
  facet_grid(vars(Race), vars())
 ```
@@ -154,6 +162,99 @@ ggplot(idea2) +
 =======
 >>>>>>> 3c2adc2f826f13221a07b2d170bf95cf5de659fa
 
+#lesson 4 pairs??? is this unsupervised 
+
+```{r}
+#data.frame(lapply(idea_table1_clean,as.numeric))
+i <-
+  idea_table1_clean %>%
+  select(-Age)
+data.frame(lapply(i,as.numeric))
+
+```
+
+```{r}
+pairs(i)
+#pairs(idea_table1)
+#pairs(idea2)
+```
+```{r}
+eu_dist <- get_dist(idea_table1, method = 'euclidean')
+image(as.matrix(eu_dist), main = "Euclidean distance")
+```
+
+```{r}
+hc_complete <- hclust(eu_dist, method='complete') # for complete linkage...merge distance of cluster, the fartherest points
+hc_complete
+hc_complete$merge %>% head()
+hc_complete$height %>% head()
+plot(hc_complete) 
+
+```
+#use this type...look at lesson 5 for info on all this stuff
+```{r}
+fviz_dend(hc_complete)
+
+```
+```{r}
+fviz_dend(hc_complete, k = 2, k_colors = "jco", as.ggplot = TRUE, show_labels = FALSE, main='Euclidean-Complete')
+
+```
+#ERROR!!!!!!
+
+```{r}
+cluster_h <- cutree(hc_complete, k = 2) #identifying 2 groups
+cluster_h
+pairs(idea_table1, col = cluster_h) # our result
+#pairs(iris2, col = species)
+```
+
+```{r}
+fviz_dend(hc_complete, h = 2, k_colors = "jco", as.ggplot = TRUE, show_labels = FALSE, main='Euclidean-Complete')
+cluster_h <- cutree(hc_complete, h = 5) #identifying 3 groups by cutting at height h=5...cut with the longest 3 branches
+cluster_h
+```
+```{r}
+hc_diana <- diana(eu_dist)
+str(hc_diana)
+```
+
+```{r}
+fviz_dend(hc_diana, as.ggplot = TRUE, show_labels = FALSE, main='Euclidean-Complete')#plot the dendrogram
+
+```
+```{r}
+cluster_diana <- cutree(hc_diana, k=3) # cut by k (with height? Error)
+cluster_diana
+
+#pairs(iris2, col=cluster_diana)
+```
+
+
+# kmeans
+```{r}
+res <- idea1 %>% kmeans(3)
+str(res)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+res <- idea_table1 %>% prcomp(scale = TRUE) #this function does what we need...no code necessary....takes every column and scales it, we transform the mean of each single column to zero 
+str(res)
+loadings <- res$Male 
+
+```
 
 <<<<<<< HEAD
 
@@ -172,12 +273,53 @@ fviz_nbclust(idea1, kmeans, method = "wss")
 ```
 ```{r}
 fviz_nbclust(idea1, hcut, hc_method = "complete", hc_metric = "euclidean", method = "wss")
+fviz_nbclust(idea2, hcut, hc_method = "complete", hc_metric = "euclidean", method = "wss")
+
 ```
 ```{r}
 fviz_nbclust(idea1, kmeans, method = "silhouette")+
   labs(subtitle = "Silhouette method")
 ```
 
-=======
+#random thing from HW3
+```{r}
+ageRange<- c('1819', '2024', '2529','3024','3539','4044','4549','5054','5559','6064','65')
+age <- as.numeric(ageRange)
+idea_table1_clean$Age <- age
+#idea_table1_clean #%>%
+#  as.numeric(Age)
+idea_table1_clean
+```
+
+```{r}
+#hi <- 
+#  idea_table1_clean %>%
+ # select(-Age)
+  
+scatter1 <- 
+  idea_table1_clean %>% #call the dataset
+  select(-Age)%>%
+  scale() 
+scatter1
+
+age <- idea_table1_clean$Age
+
+pairs(scatter1, col = age  , main = "Relationship") #factors columns to form matrix, colors from rape
+cor(scatter1)
+
+
+scatter2 <-
+  idea_table1_clean %>%
+  select(-`Other/a,b`) %>%
+  scale()
+scatter2
+
+other <- idea_table1_clean$`Other/a,b`
+pairs(scatter2, col = other, main = "relationship")
+cor(scatter2)
+```
+
+
+
+
 ## I am adding this comment in hopes that the token works hi!!
->>>>>>> 3c2adc2f826f13221a07b2d170bf95cf5de659fa
