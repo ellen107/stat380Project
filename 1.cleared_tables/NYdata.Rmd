@@ -103,3 +103,66 @@ NYPD_filtered%>%
   geom_col()+
   facet_grid(rows = vars(PERP_RACE))
 ```
+
+
+```{r}
+library(cluster)
+library(factoextra)
+```
+
+```{r}
+NYPD2<-
+  NYPD_filtered%>%
+  select(PERP_RACE, OFNS_DESC, PERP_SEX)
+```
+
+
+```{r}
+NYPD_numeric <- as.data.frame(data.matrix(NYPD2))
+```
+
+```{r}
+NYPD_race<-
+ NYPD2%>%
+  group_by(PERP_RACE)%>%
+  summarise(arrest_counts_by_race = n())
+NYPD_race
+```
+
+```{r}
+NYPD_OFNS<-
+  NYPD2%>%
+  group_by(OFNS_DESC)%>%
+  summarise(arrest_counts_by_crime = n())
+NYPD_OFNS
+```
+
+```{r}
+NYPD_race_ofns<-
+  NYPD2%>%
+  group_by(PERP_RACE,OFNS_DESC)%>%
+  summarise(arrest_counts = n())
+NYPD_race_ofns
+```
+
+
+
+```{r}
+NYPD_race_ofns<-
+  NYPD_race_ofns%>%
+  pivot_wider(names_from = OFNS_DESC, values_from = arrest_counts)
+
+NYPD_race_ofns[is.na(NYPD_race_ofns)] <- 0
+```
+
+```{r}
+NYPD_race_ofns<-
+  NYPD_race_ofns%>%
+  column_to_rownames(var = "PERP_RACE")
+```
+
+
+```{r}
+pairs(NYPD_race_ofns)
+```
+
