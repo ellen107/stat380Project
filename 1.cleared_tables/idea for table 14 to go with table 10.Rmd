@@ -1,4 +1,4 @@
----
+ ---
 title: "R Notebook"
 output: html_notebook
 ---
@@ -49,42 +49,124 @@ p19t14_flip %>%
 ```
 
 
-
-### Don't use
 ```{r}
-p19t14_flip <-p19t14_flip%>%
-  select('V10', 'V11', 'V12', 'V13', 'V14', 'V15', 'V16', 'V17', 'V18', 'V19', 'V20', 'V21', 'V22', 'V23', 'V24', 'V25', 'V26','V27', 'V28', 'V29', 'V30', 'V31', 'V32')
-  
+table1014_idea <- map_df(p19t14_flip1, ~gsub(",","", .x))
+table1014_idea2 <- as.data.frame(sapply(table1014_idea, as.numeric ))
+#table1014_idea2
+characteristic <- c("All prisoners", "Male", "Female", "White/b", "Black/b", "Hispanic")
+table1014_idea2$Characteristic <- characteristic
+View(table1014_idea2)
 ```
 
 ```{r}
-names(p19t14_flip) <- lapply(p19t14_flip[1, ], as.character)
-p19t14_flip <- p19t14_flip[-1,]
+library(esquisse)
+```
 
-#All prisoners,gender, ethnicity
+```{r}
+#esquisser(table1014_idea2)
+```
+
+```{r}
+table1014 <- 
+  table1014_idea2 %>% #select(`White/a`, `Black/a`, Hispanic, `Other/a,b`) %>%
+  pivot_longer(., cols = c(Total, `Violent Crime Totals`, `Property Crime Totals`, `Drug Crime Totals`, `Public Order Crime Totals`), names_to = "Crime Totals", values_to = "Count")
+table1014
+```
+
+```{r}
+esquisser(table1014)
+```
+
+```{r}
+table1014_2 <- 
+  table1014_idea2 %>% 
+  select(Characteristic, Total, `Violent Crime Totals`, `Property Crime Totals`, `Drug Crime Totals`, `Public Order Crime Totals`) 
+table1014_2_flip <-
+  as.data.frame(t(table1014_2))
+table1014_2_flip
+```
+
+```{r}
+#delete row
+#table1014_2_flip<-table1014_2_flip[-1, ]
+names(table1014_2_flip) <- as.matrix(table1014_2_flip[1, ])
+table1014_2_flip <- table1014_2_flip[-1, ]
+table1014_2_flip[] <- lapply(table1014_2_flip, function(x) type.convert(as.character(x)))
+table1014_2_flip
+```
+
+```{r}
+data1 <- table1014_2_flip                                           # Duplicate example data
+data1$row_names <- row.names(data1)                     # Apply row.names function
+data1  
+```
+
+
+
+
+
+
+
+
+
+#below works but doesnt take into account the offenses
+
+```{r}
+table <-
+  data1 %>%
+  pivot_longer(., cols = c(`All prisoners`, Male, Female), names_to = "Gender", values_to = "Count")
+table
+```
+
+```{r}
+table1_i <-
+  table %>%
+  pivot_longer(., cols = c(`White/b`, `Black/b`, Hispanic), names_to = "Race", values_to = "Race_Count")
+table1_i
+```
+```{r}
+#esquisser(table1_i
+#library(dplyr)
+#library(ggplot2)
+
+table1_i %>%
+ filter(!(row_names %in% "Total")) %>%
+ filter(!(Gender %in% "All prisoners")) %>%
+ ggplot() +
+ aes(x = Race, weight = Race_Count) +
+ geom_bar(fill = "#006d2c") +
+ labs(x = "Race", y = "Count", title = "Number of Sentenced Prisoners by Race and Type of Offense Totals") +
+ theme_bw() +
+ facet_wrap(vars(row_names))
+
+table1_i %>%
+ filter(!(row_names %in% "Total")) %>%
+ filter(!(Gender %in% "All prisoners")) %>%
+ ggplot() +
+ aes(x = Gender, weight = Count) +
+ geom_bar(fill = "#47039f") +
+ labs(x = "Gender", y = "Count", title = "Number of Sentenced Prisoners by Gender and Type of Offense Totals") +
+ theme_bw() +
+ facet_wrap(vars(row_names))
+
 ```
 
 
 ```{r}
-p19t14_cleaned <- 
-  p19t14_flip%>%
-  clean_names()%>%
-  select(-na_2, -na_3, -na_4, -na_5, -na_6)%>%
-  rename('Features'='na')
+#esquisser(table1_i
+#library(dplyr)
+#library(ggplot2)
+
+table1_i %>%
+ filter(!(Gender %in% "All prisoners")) %>%
+ ggplot() +
+ aes(x = Race_Count, y = Count, fill = Race, colour = Race) +
+ geom_line(size = 1L) +
+ scale_fill_hue() +
+ scale_color_hue() +
+ labs(x = "Race Count", y = "Gender Count", title = "Number of Sentenced Prisoners by Offense, Sex, and, Race ") +
+ theme_bw() +
+ facet_wrap(vars(Gender))
+)
 ```
 
-```{r}
-p19t14_cleaned2 <-p19t14_cleaned[,-1]
-rownames(p19t14_cleaned2)<-p19t14_cleaned[,1]
-```
-
-
-```{r}
-clean_df <- map_df(p19t14_cleaned2, ~ gsub(",", "", .x))
-
-```
-
-```{r}
-clean_df <- as.data.frame(sapply(clean_df, as.numeric))
-
-```
