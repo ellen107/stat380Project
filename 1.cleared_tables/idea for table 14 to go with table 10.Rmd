@@ -74,7 +74,7 @@ table1014
 ```
 
 ```{r}
-esquisser(table1014)
+#esquisser(table1014)
 ```
 
 ```{r}
@@ -99,9 +99,36 @@ table1014_2_flip
 data1 <- table1014_2_flip                                           # Duplicate example data
 data1$row_names <- row.names(data1)                     # Apply row.names function
 data1  
+
+library(tidyverse)
+row<- c('Total', 'Violent Crime Totals', 'Property Crime Totals', 'Drug Crime Totals', 'Public Order Crime Totals')
+row1 <- as.numeric(row)
+data1$row_names <- row1
+#idea_table1_clean #%>%
+#  as.numeric(Age)
+idea_table1_clean
+```
+#idea PCA, prcomp
+```{r}
+#type_crime <- c('0','1','2','3','4')
+
+#type <- as.numeric(type_crime)
+#idea_table1_clean$type <- type_crime
+
+#library("factoextra")
+#idea_table1_clean
 ```
 
 
+```{r}
+table <-
+  idea_table1_clean %>%
+  pivot_longer(., cols = c(`All prisoners`, Male, Female), names_to = "Gender", values_to = "Count")
+a<-
+  table %>%
+  filter(!(Gender %in% "All prisoners")) %>%
+
+```
 
 
 
@@ -178,7 +205,15 @@ green <-
 ```
 
 ```{r}
-pairs(data1)
+d <- 
+  data1 %>%
+  select(-row_names)
+
+d$row_names <- c(1,2,3,4,5)
+  
+pairs(d)
+
+
 ```
 
 

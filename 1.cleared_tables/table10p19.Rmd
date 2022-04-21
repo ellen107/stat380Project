@@ -15,10 +15,9 @@ library(tidyverse)
 ```
 
 ```{r}
-p19t10 <- read_csv("table10newish.csv")
+p19t10 <- read_csv("table10.csv")
 
-View(p19t10)
-
+p19t10
 ```
 ```{r}
 set1 <- p19t10 %>%
@@ -272,18 +271,23 @@ set.seed(123)
 fviz_nbclust(idea1, kmeans, method = "wss")
 ```
 ```{r}
-fviz_nbclust(idea1, hcut, hc_method = "complete", hc_metric = "euclidean", method = "wss")
-fviz_nbclust(idea2, hcut, hc_method = "complete", hc_metric = "euclidean", method = "wss")
+fviz_nbclust(idea1, hcut, hc_method = "complete", hc_metric = "euclidean", method = "wss") +
+  labs(title = "Optimal Number of Clusters for Male")
+fviz_nbclust(idea2, hcut, hc_method = "complete", hc_metric = "euclidean", method = "wss") +
+  labs(title = "Optimal Number of Clusters for Female" )
 
 ```
 ```{r}
+res <- idea1 %>% prcomp(scale = TRUE)
+fviz_screeplot(idea1, main='Scree Plot for the Decathlon2 Data')
+
 fviz_nbclust(idea1, kmeans, method = "silhouette")+
   labs(subtitle = "Silhouette method")
 ```
 
 #random thing from HW3
 ```{r}
-ageRange<- c('1819', '2024', '2529','3024','3539','4044','4549','5054','5559','6064','65')
+ageRange<- c('0', '1', '2','3','4','5','6','7','8','9','10')
 age <- as.numeric(ageRange)
 idea_table1_clean$Age <- age
 #idea_table1_clean #%>%
@@ -318,6 +322,8 @@ other <- idea_table1_clean$`Other/a,b`
 pairs(scatter2, col = other, main = "relationship")
 cor(scatter2)
 ```
+
+
 
 
 
