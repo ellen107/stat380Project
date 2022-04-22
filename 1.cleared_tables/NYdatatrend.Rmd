@@ -11,6 +11,7 @@ library(tidyverse)
 library(factoextra)
 library(mosaic)
 library(modelr)
+
 ```
 
 ```{r}
@@ -59,10 +60,54 @@ modpred %>%
   geom_segment(aes(x= Year, y= crime_count, xend = Year, yend =pred), alpha = .2) +
   ggtitle(labs(title = "Regression Line of the Total Crime in NY"))
 ```
+The evaluation of these hypothesis is fundamental especialy if we want to be sure of the correctness of the results of _lm()_ and if we want to use the linear model to do *prediction* and not just to study the relationship between response variable and predictor.
 
+```{r}
+myresiduals <- mod$residuals
+myresiduals
+```
 
+```{r}
+modpred2 <- modpred %>% add_residuals(mod)
+modpred2
+```
 
+```{r}
+qqnorm(modpred2$resid)
+qqline(modpred2$resid, lwd = 2, lty = 2, col = 'blue' ) # add a line joining the first and third quartiles of each distribution
+```
 
+```{r}
+# Histogram of the residuals
+hist( modpred2$resid , prob = TRUE, breaks = 20, col = "lightcoral", main = "Histogram of the residuals")
+
+# Creating a Normality density line which is the line your data should have if gaussian.
+griglia = sort( myresiduals ) # sort the data
+lines( griglia, dnorm(griglia, mean = mean(myresiduals), sd = sd(myresiduals)), 
+       col = 'maroon', lwd = 2 ) #I add the line simulating from a normal (dnorm)
+ 
+```
+
+```{r}
+modpred2 %>%
+  ggplot(aes(resid)) + 
+  geom_histogram()
+```
+
+```{r}
+shapiro.test(myresiduals)
+```
+if the p-value of the test if less than 0.05, then you reject the null hypothesis at 5% significance and conclude that your data is non-normal.
+
+```{r}
+mplot(mod)
+```
+
+* Residuals Vs Fitted (plot 1) and Scale-Location plot (plot 3): we are looking for particular pattern in the way the points are distributed. Are the points centered in 0? Are they scattered as a random clouds of points or without any particular shapes? If we answer yes to both the questions we can say that residuals have 0 mean and they are homoschedastic.
+
+* Normal Q-Q (plot 2): the plot introduced before is reprosed here.
+
+* 95% confidence interval: the 95% confidence interval obtained before are represented here with a 0 vertical line. If the confidence interval (horizontal line) cross the 0 vertical line it means that the corresponding $\beta$ is close to 0 (so not significant to explain the response variable)
 
 
 
